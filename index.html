@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="Style/app.css" rel="stylesheet" />
+    <script src="./node_modules/requirejs/require.js" data-main="main.js"></script>
+    <script>
+       window.onload = function() {
+            require(['GameLibery/Game'], function (Game) {
+                var game = new Game();
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="GameStruct">
+      <div id="camera" class='camera'>
+          <table id="GamePalne" border="1"></table>
+       </div>
+    </div>
+</body>
+</html>
