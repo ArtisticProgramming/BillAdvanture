@@ -31,7 +31,7 @@ var __extends = (this && this.__extends) || (function () {
         __extends(MachinPlayer, _super);
         function MachinPlayer(name, objectVisual, postionId) {
             var _this = _super.call(this, name, objectVisual, new MachinMovement_1.MachinMovement(name)) || this;
-            _this.speed = 150;
+            _this.speed = 90;
             _this.blocked = false;
             _this._playerMovement.currentPosition = postionId;
             return _this;

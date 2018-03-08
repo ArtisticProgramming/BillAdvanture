@@ -17,7 +17,7 @@ export class MachinPlayer2 extends BasePlayer {
         this._playerMovement.currentPosition = postionId;
      
     }
-     speed:number=150;
+     speed:number=70;
      blocked=false;
     Create(): void {
         super.Create();
