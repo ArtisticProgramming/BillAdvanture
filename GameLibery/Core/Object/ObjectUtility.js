@@ -16,8 +16,12 @@
         ObjectUtility.AppearObject = function (name, objectov) {
             HtmlAndCss_1.HtmlAndCss.CreateAndAppendCssClass(name, objectov.getProperteyList());
         };
-        ObjectUtility.AddBlockedAttribute = function (position, attribute) {
+        ObjectUtility.AddObjectAttribute = function (position, attribute) {
             $("#" + position.toString()).attr(attribute, attribute);
+        };
+        ObjectUtility.DeleteObject = function (position, attribute) {
+            $("#" + position.toString()).removeAttr(attribute);
+            $("#" + position.toString()).removeClass(attribute);
         };
         return ObjectUtility;
     }());

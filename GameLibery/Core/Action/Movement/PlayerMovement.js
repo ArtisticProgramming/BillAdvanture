@@ -32,7 +32,9 @@
             if (ActionConstraint_1.ActionConstraint.MoveIsPssible(newPostion, arrow)) {
                 this.UpdatePosition(postion, newPostion);
                 Camera_1.Camera.getInstance().MoverCamera("bottom", false, GameConfig_1.CameraConfig.CameraSpeedVerically);
+                return true;
             }
+            return false;
         };
         PlayerMovement.prototype.Down = function () {
             var arrow = Enums_1.Direction.Down;
@@ -41,16 +43,19 @@
             if (ActionConstraint_1.ActionConstraint.MoveIsPssible(newPostion, arrow)) {
                 this.UpdatePosition(postion, newPostion);
                 Camera_1.Camera.getInstance().MoverCamera("bottom", true, GameConfig_1.CameraConfig.CameraSpeedVerically);
+                return true;
             }
+            return false;
         };
         PlayerMovement.prototype.Left = function () {
-            debugger;
             var postion = this.currentPosition;
             var newPostion = postion - 1;
             if (ActionConstraint_1.ActionConstraint.MoveIsPssible(newPostion, Enums_1.Direction.Left)) {
                 this.UpdatePosition(postion, newPostion);
                 Camera_1.Camera.getInstance().MoverCamera("left", true, GameConfig_1.CameraConfig.CameraSpeedHorizontally);
+                return true;
             }
+            return false;
         };
         PlayerMovement.prototype.Right = function () {
             var arrow = Enums_1.Direction.Right;
@@ -59,60 +64,10 @@
             if (ActionConstraint_1.ActionConstraint.MoveIsPssible(newPostion, arrow)) {
                 this.UpdatePosition(postion, newPostion);
                 Camera_1.Camera.getInstance().MoverCamera("left", false, GameConfig_1.CameraConfig.CameraSpeedHorizontally);
+                return true;
             }
+            return false;
         };
-        // Up(): void {
-        //     var arrow: Direction = Direction.Up;
-        //     var postion: number = this.currentPosition;
-        //     let newPostion: number = postion - GamePlanConfig.HorizontalCell;
-        //     if (ActionConstraint.MoveIsPssible(newPostion, arrow)) {
-        //         this.UpdatePosition(postion, newPostion);
-        //         this.updir++;
-        //         if(this.updir == this.times){
-        //             Camera.getInstance().MoverCamera("bottom", false, CameraConfig.CameraSpeedVerically*this.times);
-        //             this.updir=0;
-        //         }
-        //     }
-        // }
-        // Down(): void {
-        //     var arrow: Direction = Direction.Down;
-        //     var postion: number = this.currentPosition;
-        //     let newPostion: number = postion + GamePlanConfig.HorizontalCell;
-        //     if (ActionConstraint.MoveIsPssible(newPostion, arrow)) {
-        //         this.downdir ++;
-        //         this.UpdatePosition(postion, newPostion);
-        //         if(this.downdir == this.times){
-        //         Camera.getInstance().MoverCamera("bottom", true, CameraConfig.CameraSpeedVerically*this.times);
-        //         this.downdir=0;
-        //     }
-        //     }
-        // }
-        // Left(): void {
-        //     debugger;
-        //     var postion: number = this.currentPosition;
-        //     let newPostion: number = postion - 1;
-        //     if (ActionConstraint.MoveIsPssible(newPostion, Direction.Left)) {
-        //         this.leftdir++;
-        //         this.UpdatePosition(postion, newPostion);
-        //         if(this.leftdir == 3){
-        //         Camera.getInstance().MoverCamera("left", true, CameraConfig.CameraSpeedHorizontally*this.times);
-        //         this.leftdir=0;
-        //     }
-        //     }
-        // }
-        // Right(): void {
-        //     var arrow: Direction = Direction.Right;
-        //     var postion: number = this.currentPosition;
-        //     let newPostion: number = postion + 1;
-        //     if (ActionConstraint.MoveIsPssible(newPostion, arrow)) {
-        //         this.rightdir++;
-        //         this.UpdatePosition(postion, newPostion);
-        //         if(this.rightdir == this.times){
-        //         Camera.getInstance().MoverCamera("left", false, CameraConfig.CameraSpeedHorizontally*this.times);
-        //         this.rightdir =0;
-        //         }
-        //     }
-        // }
         PlayerMovement.prototype.UpdatePosition = function (oldPostion, newPostion) {
             this.currentPosition = newPostion;
             $("#" + oldPostion.toString()).removeClass(this.name);

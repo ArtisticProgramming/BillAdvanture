@@ -14,23 +14,21 @@ var __extends = (this && this.__extends) || (function () {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "jquery", "../../../General/Enums", "./BasePlayer", "../../../GameCreation", "../../../../Configuration/GameConfig", "../../../General/GameEvents", "../../../Action/Movement/MachinMovement"], factory);
+        define(["require", "exports", "../../../General/Enums", "./BasePlayer", "../../../GameCreation", "../../../General/GameEvents", "../../../Action/Movement/MachinMovement"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var $ = require("jquery");
     var Enums_1 = require("../../../General/Enums");
     var BasePlayer_1 = require("./BasePlayer");
     var GameCreation_1 = require("../../../GameCreation");
-    var GameConfig_1 = require("../../../../Configuration/GameConfig");
     var GameEvents_1 = require("../../../General/GameEvents");
     var MachinMovement_1 = require("../../../Action/Movement/MachinMovement");
     var MachinPlayer2 = /** @class */ (function (_super) {
         __extends(MachinPlayer2, _super);
         function MachinPlayer2(name, objectVisual, postionId) {
             var _this = _super.call(this, name, objectVisual, new MachinMovement_1.MachinMovement(name)) || this;
-            _this.speed = 70;
+            _this.speed = 90;
             _this.blocked = false;
             _this._playerMovement.currentPosition = postionId;
             return _this;
@@ -38,30 +36,20 @@ var __extends = (this && this.__extends) || (function () {
         MachinPlayer2.prototype.Create = function () {
             _super.prototype.Create.call(this);
         };
-        MachinPlayer2.prototype.Move = function (direction) {
-            _super.prototype.Move.call(this, direction);
-        };
-        MachinPlayer2.prototype.MoverMachin = function () {
+        MachinPlayer2.prototype.MoveMachin = function () {
             this.RunIntelligenceMachin(this._playerMovement.currentPosition);
         };
-        MachinPlayer2.prototype.MoveX = function (nearGoal) {
-            var direction = GameEvents_1.GameEvents.GetDirection(nearGoal.xArrow);
-            this.Move(direction);
-        };
-        MachinPlayer2.prototype.MoveY = function (nearGoal) {
-            var direction = GameEvents_1.GameEvents.GetDirection(nearGoal.yArrow);
-            this.Move(direction);
-        };
         MachinPlayer2.prototype.RunIntelligenceMachin = function (PostionparseId) {
-            var nearGoal = this.FindDistenceOfGoals(PostionparseId);
+            var GoalId = GameCreation_1.GameCreation.HumanPlayer._playerMovement.currentPosition;
+            var nearGoal = _super.prototype.FindDistenceOfGoals.call(this, PostionparseId, GoalId);
             this.MoveInY(nearGoal);
         };
         MachinPlayer2.prototype.MoveInX = function (nearGoal) {
-            // Game.intelligence.MoveMachin(nearGoal.yArrow, 'steve')
             var that = this;
             var X_Repeat = nearGoal.x;
             var sss2 = window.setInterval(function () {
-                var nearGoalNew = that.FindDistenceOfGoals(that._playerMovement.currentPosition);
+                var GoalId = GameCreation_1.GameCreation.HumanPlayer._playerMovement.currentPosition;
+                var nearGoalNew = that.FindDistenceOfGoals(that._playerMovement.currentPosition, GoalId);
                 if (nearGoalNew.x != nearGoalNew.x) {
                     nearGoal.x = nearGoalNew.x;
                 }
@@ -71,7 +59,7 @@ var __extends = (this && this.__extends) || (function () {
                 }
                 if (X_Repeat <= 0) {
                     window.clearTimeout(sss2);
-                    that.MoverMachin();
+                    that.MoveMachin();
                 }
                 else {
                     that.MoveX(nearGoal);
@@ -83,13 +71,6 @@ var __extends = (this && this.__extends) || (function () {
                         MachinMovement_1.MachinMovement.IsDeadLock(Enums_1.Direction.Right, that._playerMovement.currentPosition)) {
                         X_Repeat = 0;
                     }
-                    //  if(MachinMovement.IsDeadLock(Direction.Up, that._playerMovement.currentPosition ))
-                    //  {
-                    //       that.Move(Direction.Down)
-                    //  }else  
-                    //  {
-                    //   that.Move(Direction.Up)
-                    //  }  
                 }
             }, this.speed);
         };
@@ -97,7 +78,8 @@ var __extends = (this && this.__extends) || (function () {
             var that = this;
             var Y_Repeat = nearGoal.y;
             var sss = window.setInterval(function () {
-                var nearGoalNew = that.FindDistenceOfGoals(that._playerMovement.currentPosition);
+                var GoalId = GameCreation_1.GameCreation.HumanPlayer._playerMovement.currentPosition;
+                var nearGoalNew = that.FindDistenceOfGoals(that._playerMovement.currentPosition, GoalId);
                 if (nearGoalNew.x != nearGoalNew.x) {
                     nearGoal.x = nearGoalNew.x;
                 }
@@ -118,69 +100,9 @@ var __extends = (this && this.__extends) || (function () {
                     if (MachinMovement_1.MachinMovement.IsDeadLock(Enums_1.Direction.Up, that._playerMovement.currentPosition) &&
                         MachinMovement_1.MachinMovement.IsDeadLock(Enums_1.Direction.Down, that._playerMovement.currentPosition)) {
                         Y_Repeat = 0;
-                        //    if(MachinMovement.IsDeadLock(Direction.Right, that._playerMovement.currentPosition ))
-                        //    {
-                        //         that.Move(Direction.Left)
-                        //    }else  
-                        //    {
-                        //     that.Move(Direction.Right)
-                        //    }  
                     }
                 }
             }, this.speed);
-        };
-        MachinPlayer2.prototype.FindDistenceOfGoals = function (PostionparseId) {
-            var AllDistenceVertex = [{}];
-            var TotalDistence = [];
-            var GoalId = GameCreation_1.GameCreation.HumanPlayer._playerMovement.currentPosition;
-            var Distence = this.GetDistence(PostionparseId, GoalId);
-            return Distence;
-            //     AllDistenceVertex.push({
-            //         x: Distence.x, y: Distence.y,
-            //         xArrow: Distence.xArrow, yArrow: Distence.yArrow,
-            //         GoalId: GoalId, TotalDistence: Distence.x + Distence.y
-            //     });
-            //     TotalDistence.push(Distence.x + Distence.y);
-            // var xs = Math.min.apply(Math, TotalDistence);
-            // var nearElement =this.FindElement(AllDistenceVertex, xs);
-            // return nearElement;
-        };
-        MachinPlayer2.prototype.GetDistence = function (PockManPostion, GoalPostion) {
-            //39 asci code is right;
-            //37 asci code is left;
-            //38 asci code is up
-            //40 asci code is down
-            var X_Arrow;
-            var Y_Arrow;
-            var VerticalDistence = this.Get_TR_ID(GoalPostion) - this.Get_TR_ID(PockManPostion);
-            if (VerticalDistence > 0)
-                Y_Arrow = Enums_1.Direction.Down;
-            else
-                Y_Arrow = Enums_1.Direction.Up;
-            var horizontalDistence = GoalPostion - Math.abs((PockManPostion + (VerticalDistence * GameConfig_1.GamePlanConfig.HorizontalCell)));
-            if (horizontalDistence > 0)
-                X_Arrow = Enums_1.Direction.Right;
-            else
-                X_Arrow = Enums_1.Direction.Left;
-            return { x: Math.abs(horizontalDistence), y: Math.abs(VerticalDistence), xArrow: X_Arrow, yArrow: Y_Arrow };
-        };
-        MachinPlayer2.prototype.Get_TR_ID = function (element) {
-            var Id = $('#' + element).parent('tr').attr('Id');
-            return parseInt(Id);
-        };
-        MachinPlayer2.prototype.FindElement = function (Array, Postion) {
-            var target;
-            for (var i = 0; i < Array.length; i++) {
-                if (Array[i].TotalDistence == Postion) {
-                    target = {
-                        x: Array[i].x, y: Array[i].y,
-                        xArrow: Array[i].xArrow, yArrow: Array[i].yArrow,
-                        GoalId: Array[i].GoalId, TotalDistence: Array[i].TotalDistence
-                    };
-                    break;
-                }
-            }
-            return target;
         };
         return MachinPlayer2;
     }(BasePlayer_1.BasePlayer));

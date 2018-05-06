@@ -14,15 +14,18 @@ var __extends = (this && this.__extends) || (function () {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "../../../../Configuration/GameConfig", "../../../General/Enums", "../../GameObject", "../../ObjectUtility"], factory);
+        define(["require", "exports", "jquery", "../../../../Configuration/GameConfig", "../../../General/Enums", "../../GameObject", "../../ObjectUtility", "../../../GameManagement", "../../../General/GameEvents"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    var $ = require("jquery");
     var GameConfig_1 = require("../../../../Configuration/GameConfig");
     var Enums_1 = require("../../../General/Enums");
     var GameObject_1 = require("../../GameObject");
     var ObjectUtility_1 = require("../../ObjectUtility");
+    var GameManagement_1 = require("../../../GameManagement");
+    var GameEvents_1 = require("../../../General/GameEvents");
     var BasePlayer = /** @class */ (function (_super) {
         __extends(BasePlayer, _super);
         function BasePlayer(name, objectVisual, playerMovement) {
@@ -37,26 +40,65 @@ var __extends = (this && this.__extends) || (function () {
         BasePlayer.prototype.Create = function () {
             ObjectUtility_1.ObjectUtility.AppearObject(this.name, this.ObjectVisual);
         };
-        BasePlayer.prototype.MoverInDirection = function (dir) {
+        BasePlayer.prototype.MoveInDirection = function (dir) {
             switch (dir) {
                 case Enums_1.Direction.Right:
-                    this._playerMovement.Right();
-                    break;
+                    return this._playerMovement.Right();
                 case Enums_1.Direction.Up:
-                    this._playerMovement.Up();
-                    break;
+                    return this._playerMovement.Up();
                 case Enums_1.Direction.Left:
-                    this._playerMovement.Left();
-                    break;
+                    return this._playerMovement.Left();
                 case Enums_1.Direction.Down:
-                    this._playerMovement.Down();
-                    break;
+                    return this._playerMovement.Down();
             }
         };
         BasePlayer.prototype.Move = function (dir) {
-            this.MoverInDirection(dir);
-            // var that=this;
-            // setTimeout(function(){that.MoverInDirection(dir)}, 0);
+            if (GameManagement_1.GameManagement.Puased == false) {
+                return this.MoveInDirection(dir);
+            }
+            return false;
+        };
+        BasePlayer.prototype.FindDistenceOfGoals = function (PostionparseId, GoalId) {
+            var AllDistenceVertex = [{}];
+            var TotalDistence = [];
+            var Distence = this.GetDistence(PostionparseId, GoalId);
+            return Distence;
+        };
+        BasePlayer.prototype.GetDistence = function (PockManPostion, GoalPostion) {
+            //39 asci code is right;
+            //37 asci code is left;
+            //38 asci code is up
+            //40 asci code is down
+            var X_Arrow;
+            var Y_Arrow;
+            var VerticalDistence = this.Get_TR_ID(GoalPostion) - this.Get_TR_ID(PockManPostion);
+            if (VerticalDistence > 0)
+                Y_Arrow = Enums_1.Direction.Down;
+            else
+                Y_Arrow = Enums_1.Direction.Up;
+            var horizontalDistence = GoalPostion - Math.abs((PockManPostion + (VerticalDistence * GameConfig_1.GamePlanConfig.HorizontalCell)));
+            if (horizontalDistence > 0)
+                X_Arrow = Enums_1.Direction.Right;
+            else
+                X_Arrow = Enums_1.Direction.Left;
+            return {
+                x: Math.abs(horizontalDistence),
+                y: Math.abs(VerticalDistence),
+                xArrow: X_Arrow,
+                yArrow: Y_Arrow
+            };
+        };
+        BasePlayer.prototype.Get_TR_ID = function (element) {
+            var Id = $('#' + element).parent('tr').attr('Id');
+            return parseInt(Id);
+        };
+        BasePlayer.prototype.MoveX = function (nearGoal) {
+            var direction = GameEvents_1.GameEvents.GetDirection(nearGoal.xArrow);
+            this.Move(direction);
+        };
+        BasePlayer.prototype.MoveY = function (nearGoal) {
+            var direction = GameEvents_1.GameEvents.GetDirection(nearGoal.yArrow);
+            this.Move(direction);
         };
         return BasePlayer;
     }(GameObject_1.GameObject));

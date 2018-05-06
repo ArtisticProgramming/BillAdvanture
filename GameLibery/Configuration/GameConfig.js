@@ -14,8 +14,8 @@
         }
         GamePlanConfig.RowCounterStart = 100000;
         GamePlanConfig.CellCounterStart = 1;
-        GamePlanConfig.VerticalCell = 25;
-        GamePlanConfig.HorizontalCell = 41;
+        GamePlanConfig.VerticalCell = 40;
+        GamePlanConfig.HorizontalCell = 52;
         return GamePlanConfig;
     }());
     exports.GamePlanConfig = GamePlanConfig;
@@ -26,11 +26,18 @@
         return GamePlayerConfig;
     }());
     exports.GamePlayerConfig = GamePlayerConfig;
+    var GoalConfig = /** @class */ (function () {
+        function GoalConfig() {
+        }
+        GoalConfig.GoalCount = 1;
+        return GoalConfig;
+    }());
+    exports.GoalConfig = GoalConfig;
     var CameraConfig = /** @class */ (function () {
         function CameraConfig() {
         }
-        CameraConfig.CameraSpeedVerically = 46;
-        CameraConfig.CameraSpeedHorizontally = 38;
+        CameraConfig.CameraSpeedVerically = 51;
+        CameraConfig.CameraSpeedHorizontally = 43;
         return CameraConfig;
     }());
     exports.CameraConfig = CameraConfig;

@@ -5,7 +5,8 @@ import { ObjectUtility } from "../../ObjectUtility";
 import { ObjectAttribute } from "../../../General/Enums";
 import { ObjectOV } from "../../../../Configuration/ObjectVisual";
 
-export class Block extends BaseStaticObject {       
+export class Goal extends BaseStaticObject {
+        
     constructor(name:string,objectVisual:ObjectOV,position:number)
     {
         super(name,objectVisual, position);
@@ -14,7 +15,7 @@ export class Block extends BaseStaticObject {
     Create()
     {
         super.Create();
-        ObjectUtility.AddObjectAttribute(this.position,ObjectAttribute.block);
+        ObjectUtility.AddObjectAttribute(this.position,ObjectAttribute.Goal);
     }
 }
 

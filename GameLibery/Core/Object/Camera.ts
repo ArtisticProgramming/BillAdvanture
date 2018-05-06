@@ -22,7 +22,6 @@ export class Camera {
     }
 
     MoverCamera(Arrow: string, IsIncrese: boolean, speed: number): void {
-         debugger;
         // tslint:disable-next-line:typedef
       
 

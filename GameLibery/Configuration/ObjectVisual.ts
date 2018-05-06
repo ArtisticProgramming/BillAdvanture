@@ -1,12 +1,14 @@
 import {
     KeyValuePair
 } from "../Utility/KeyValuePair";
+import { ObjectAttribute } from "../Core/General/Enums";
 
 // --------------------------------------------------------------------------------------------------
 export class ObjectOV {
     public GetPhotoPath(photo: string): string {
         return "url(image/" + photo + ")";
     }
+    public ObjectType: ObjectAttribute=ObjectAttribute.block;
     public backgroundSize: number = 54;
     public backgroundRepeat: string = "no-repeat";
     public backgroundPosition: string = "center";
@@ -16,12 +18,13 @@ export class ObjectOV {
         return new  Array < KeyValuePair >();
     }
 }
+
 // --------------------------------------------------------------------------------------------------
 export class BillGatesOV extends ObjectOV {
     constructor() {
         super();
         this.photo="billgates2.png";
-        this.backgroundSize = 56;
+        this.backgroundSize = 56; 
     }
     getProperteyList(): Array < KeyValuePair > {
         let properteyList: Array < KeyValuePair > = new Array < KeyValuePair > ();
@@ -83,11 +86,13 @@ export class PineTreeOV extends ObjectOV {
 }
 // --------------------------------------------------------------------------------------------------
 export class PalmTreeOV extends ObjectOV {
+
     constructor() {
         super();
         this.photo="tree3.png"
         this.backgroundSize = 57;
     }
+
     getProperteyList(): Array < KeyValuePair > {
         let properteyList: Array < KeyValuePair > = new Array < KeyValuePair > ();
         properteyList.push(new KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
@@ -118,7 +123,8 @@ export class CoconutPalmTreeOV extends ObjectOV {
 export class FireOV extends ObjectOV {
     constructor() {
         super();
-        this.photo='fire.gif'
+        this.photo='fire.gif',
+        this.ObjectType=ObjectAttribute.kill
     }
     getProperteyList(): Array < KeyValuePair > {
         let properteyList: Array < KeyValuePair > = new Array < KeyValuePair > ();
@@ -167,7 +173,24 @@ export class GrassOV extends ObjectOV {
     constructor() {
         super();
         this.photo='grass.png';
-        this.backgroundPosition="bottom"
+        this.backgroundPosition="bottom";
+    }
+    getProperteyList(): Array < KeyValuePair > {
+        let properteyList: Array < KeyValuePair > = new Array < KeyValuePair > ();
+        properteyList.push(new KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+        properteyList.push(new KeyValuePair("background-repeat", this.backgroundRepeat));
+        properteyList.push(new KeyValuePair("background-position", this.backgroundPosition));
+        properteyList.push(new KeyValuePair("background-size", this.backgroundSize + "px"));
+        return properteyList
+    }
+}
+// --------------------------------------------------------------------------------------------------
+export class GoalOV extends ObjectOV {
+    constructor() {
+        super();
+        this.photo='windows.png';
+        this.backgroundPosition="bottom";
+        this.ObjectType=ObjectAttribute.Goal;
     }
     getProperteyList(): Array < KeyValuePair > {
         let properteyList: Array < KeyValuePair > = new Array < KeyValuePair > ();

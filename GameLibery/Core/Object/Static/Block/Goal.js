@@ -22,17 +22,17 @@ var __extends = (this && this.__extends) || (function () {
     var BaseBlock_1 = require("./BaseBlock");
     var ObjectUtility_1 = require("../../ObjectUtility");
     var Enums_1 = require("../../../General/Enums");
-    var Block = /** @class */ (function (_super) {
-        __extends(Block, _super);
-        function Block(name, objectVisual, position) {
+    var Goal = /** @class */ (function (_super) {
+        __extends(Goal, _super);
+        function Goal(name, objectVisual, position) {
             return _super.call(this, name, objectVisual, position) || this;
         }
-        Block.prototype.Create = function () {
+        Goal.prototype.Create = function () {
             _super.prototype.Create.call(this);
-            ObjectUtility_1.ObjectUtility.AddObjectAttribute(this.position, Enums_1.ObjectAttribute.block);
+            ObjectUtility_1.ObjectUtility.AddObjectAttribute(this.position, Enums_1.ObjectAttribute.Goal);
         };
-        return Block;
+        return Goal;
     }(BaseBlock_1.BaseStaticObject));
-    exports.Block = Block;
+    exports.Goal = Goal;
 });
-//# sourceMappingURL=Block.js.map
+//# sourceMappingURL=Goal.js.map

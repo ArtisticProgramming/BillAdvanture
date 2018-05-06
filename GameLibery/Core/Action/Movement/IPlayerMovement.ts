@@ -1,8 +1,8 @@
 export interface IPlayerMovement {
     currentPosition:number;
     name:string;
-    Up(): void;
-    Down(): void;
-    Left(): void;
-    Right(): void;
+    Up(): boolean;
+    Down(): boolean;
+    Left(): boolean;
+    Right(): boolean;
 }

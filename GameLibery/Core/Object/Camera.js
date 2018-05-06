@@ -29,7 +29,6 @@
             }
         };
         Camera.prototype.MoverCamera = function (Arrow, IsIncrese, speed) {
-            debugger;
             // tslint:disable-next-line:typedef
             var val = $("#GamePalne").css(Arrow);
             // tslint:disable-next-line:radix

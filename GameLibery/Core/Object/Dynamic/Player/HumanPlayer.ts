@@ -1,10 +1,14 @@
 ﻿import $ = require("jquery");
 import { IPlayerMovement } from "../../../Action/Movement/IPlayerMovement";
 import { PlayerMovement } from "../../../Action/Movement/PlayerMovement";
-import { Direction } from "../../../General/Enums";
+import { Direction, ObjectAttribute } from "../../../General/Enums";
 import { BasePlayer } from "./BasePlayer";
 import { ObjectOV } from "../../../../Configuration/ObjectVisual";
 import { GamePlanConfig } from '../../../../Configuration/GameConfig';
+import { GameCreation } from '../../../GameCreation';
+import { GameUtility } from "../../../General/GameUtility";
+import { ObjectUtility } from "../../ObjectUtility";
+import { GameManagement } from "../../../GameManagement";
 
 export class HumanPlayer extends BasePlayer {
 
@@ -15,19 +19,34 @@ export class HumanPlayer extends BasePlayer {
 
     Create(): void {
         super.Create();
-        $("#1").addClass("close");
-        $("#2").addClass("close");
-        $("#3").addClass("close");
-        $("#"+1+GamePlanConfig.HorizontalCell).addClass("close");
-        $("#"+2+GamePlanConfig.HorizontalCell).addClass("close");
-        $("#"+3+GamePlanConfig.HorizontalCell).addClass("close");
-        $("#"+1+GamePlanConfig.HorizontalCell*2).addClass("close");
-        $("#"+2+GamePlanConfig.HorizontalCell*2).addClass("close");
-        $("#"+3+GamePlanConfig.HorizontalCell*2).addClass("close");
     }
 
-    Move(direction:Direction):void {
-      
-        super.Move(direction);
+    Move(direction:Direction):boolean {
+      var IsplayerMoved = super.Move(direction);
+      if(IsplayerMoved==true)
+      {
+        let postion= GameCreation.HumanPlayer._playerMovement.currentPosition;
+        //check for goal 
+        this.CheckForGoal(postion);
+        //check for kill
+        this.CheckForkill(postion);
+      }
+      return IsplayerMoved;
     }
+
+    CheckForGoal(position:number):void
+    {
+        
+        var result = GameUtility.GetAttribute(position,ObjectAttribute.Goal);
+        if (result !== undefined)
+        {
+            GameManagement.ReduceGoal(position)
+        }
+    }
+
+    CheckForkill(position:number):void
+    {
+
+    }
+
 }

@@ -18,12 +18,14 @@ export class ActionConstraint {
 
         return true;
     }
+    
     public static IsItblock(postion: number, Arrow: Direction): boolean {
         if (this.CheckAttribute(postion, ObjectAttribute.block))
             return false;
         else
             return true;
     }
+
     public static MoveIsPssibleMachin(postion: number, Arrow: Direction): boolean {
         if (this.IsOutsideOfBoundary(postion, Arrow))
             return false;

@@ -43,8 +43,9 @@
             var newPostion = MachinMovement.GetNewPostion(arrow, postion);
             if (ActionConstraint_1.ActionConstraint.MoveIsPssibleMachin(newPostion, arrow)) {
                 this.UpdatePosition(postion, newPostion);
-                // Camera.getInstance().MoverCamera("bottom", false, CameraConfig.CameraSpeedVerically);
+                return true;
             }
+            return false;
         };
         MachinMovement.prototype.Down = function () {
             var arrow = Enums_1.Direction.Down;
@@ -52,8 +53,9 @@
             var newPostion = MachinMovement.GetNewPostion(arrow, postion);
             if (ActionConstraint_1.ActionConstraint.MoveIsPssibleMachin(newPostion, arrow)) {
                 this.UpdatePosition(postion, newPostion);
-                // Camera.getInstance().MoverCamera("bottom", true, CameraConfig.CameraSpeedVerically);
+                return true;
             }
+            return false;
         };
         MachinMovement.prototype.Left = function () {
             var arrow = Enums_1.Direction.Left;
@@ -61,8 +63,9 @@
             var newPostion = MachinMovement.GetNewPostion(arrow, postion);
             if (ActionConstraint_1.ActionConstraint.MoveIsPssibleMachin(newPostion, arrow)) {
                 this.UpdatePosition(postion, newPostion);
-                // Camera.getInstance().MoverCamera("left", true, CameraConfig.CameraSpeedHorizontally);
+                return true;
             }
+            return false;
         };
         MachinMovement.prototype.Right = function () {
             var arrow = Enums_1.Direction.Right;
@@ -70,21 +73,10 @@
             var newPostion = MachinMovement.GetNewPostion(arrow, postion);
             if (ActionConstraint_1.ActionConstraint.MoveIsPssibleMachin(newPostion, arrow)) {
                 this.UpdatePosition(postion, newPostion);
-                // Camera.getInstance().MoverCamera("left", false, CameraConfig.CameraSpeedHorizontally);
+                return true;
             }
+            return false;
         };
-        // switch (direction) {
-        //             case Direction.Right:
-        //             if(ActionConstraint.MoveIsPssibleMachin(newPostion, Right))
-        //                 this.Up();
-        //                 break;
-        //             case Direction.Up:
-        //                 break;
-        //             case Direction.Left:
-        //                 break;
-        //             case Direction.Down:
-        //                 break;
-        //         }
         MachinMovement.IsDeadLock = function (direction, position) {
             var newPostion = this.GetNewPostion(direction, position);
             if (ActionConstraint_1.ActionConstraint.IsItblock(newPostion, direction)) {

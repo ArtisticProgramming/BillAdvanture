@@ -21,22 +21,21 @@ var __extends = (this && this.__extends) || (function () {
     Object.defineProperty(exports, "__esModule", { value: true });
     var GameObject_1 = require("../../GameObject");
     var ObjectUtility_1 = require("../../ObjectUtility");
-    var BaseBlock = /** @class */ (function (_super) {
-        __extends(BaseBlock, _super);
-        function BaseBlock(name, objectVisual, position) {
+    var BaseStaticObject = /** @class */ (function (_super) {
+        __extends(BaseStaticObject, _super);
+        function BaseStaticObject(name, objectVisual, position) {
             var _this = _super.call(this) || this;
             _this.name = name;
             _this.position = position;
             _this.ObjectVisual = objectVisual;
             return _this;
         }
-        BaseBlock.prototype.Create = function () {
+        BaseStaticObject.prototype.Create = function () {
             ObjectUtility_1.ObjectUtility.AppearObject(this.name, this.ObjectVisual);
             $("#" + this.position).addClass(this.name);
-            $("#" + this.position).addClass("close");
         };
-        return BaseBlock;
+        return BaseStaticObject;
     }(GameObject_1.GameObject));
-    exports.BaseBlock = BaseBlock;
+    exports.BaseStaticObject = BaseStaticObject;
 });
 //# sourceMappingURL=BaseBlock.js.map

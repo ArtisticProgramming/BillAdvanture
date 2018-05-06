@@ -14,15 +14,17 @@ var __extends = (this && this.__extends) || (function () {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "../Utility/KeyValuePair"], factory);
+        define(["require", "exports", "../Utility/KeyValuePair", "../Core/General/Enums"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var KeyValuePair_1 = require("../Utility/KeyValuePair");
+    var Enums_1 = require("../Core/General/Enums");
     // --------------------------------------------------------------------------------------------------
     var ObjectOV = /** @class */ (function () {
         function ObjectOV() {
+            this.ObjectType = Enums_1.ObjectAttribute.block;
             this.backgroundSize = 54;
             this.backgroundRepeat = "no-repeat";
             this.backgroundPosition = "center";
@@ -164,7 +166,8 @@ var __extends = (this && this.__extends) || (function () {
         __extends(FireOV, _super);
         function FireOV() {
             var _this = _super.call(this) || this;
-            _this.photo = 'fire.gif';
+            _this.photo = 'fire.gif',
+                _this.ObjectType = Enums_1.ObjectAttribute.kill;
             return _this;
         }
         FireOV.prototype.getProperteyList = function () {
@@ -238,5 +241,26 @@ var __extends = (this && this.__extends) || (function () {
         return GrassOV;
     }(ObjectOV));
     exports.GrassOV = GrassOV;
+    // --------------------------------------------------------------------------------------------------
+    var GoalOV = /** @class */ (function (_super) {
+        __extends(GoalOV, _super);
+        function GoalOV() {
+            var _this = _super.call(this) || this;
+            _this.photo = 'windows.png';
+            _this.backgroundPosition = "bottom";
+            _this.ObjectType = Enums_1.ObjectAttribute.Goal;
+            return _this;
+        }
+        GoalOV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return GoalOV;
+    }(ObjectOV));
+    exports.GoalOV = GoalOV;
 });
 //# sourceMappingURL=ObjectVisual.js.map

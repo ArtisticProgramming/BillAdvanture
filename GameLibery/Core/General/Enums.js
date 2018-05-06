@@ -16,10 +16,15 @@
         Direction[Direction["Left"] = 37] = "Left";
         Direction[Direction["Right"] = 39] = "Right";
     })(Direction = exports.Direction || (exports.Direction = {}));
+    var GameMangemntKey;
+    (function (GameMangemntKey) {
+        GameMangemntKey[GameMangemntKey["space"] = 32] = "space";
+    })(GameMangemntKey = exports.GameMangemntKey || (exports.GameMangemntKey = {}));
     var ObjectAttribute;
     (function (ObjectAttribute) {
         ObjectAttribute["block"] = "block";
         ObjectAttribute["kill"] = "kill";
+        ObjectAttribute["Goal"] = "goal";
         ObjectAttribute["Passable"] = "Passable";
         ObjectAttribute["BlockMachainPlayer"] = "BlockMachainPlayer";
     })(ObjectAttribute = exports.ObjectAttribute || (exports.ObjectAttribute = {}));

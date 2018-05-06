@@ -10,8 +10,14 @@ export class ObjectUtility
     {
         HtmlAndCss.CreateAndAppendCssClass(name, objectov.getProperteyList());
     }
-    static AddBlockedAttribute(position:number,attribute:ObjectAttribute)
+    static AddObjectAttribute(position:number,attribute:ObjectAttribute)
     {
         $("#"+position.toString()).attr(attribute,attribute);
+    }
+
+    static DeleteObject(position:number,attribute:ObjectAttribute)
+    {
+        $("#"+position.toString()).removeAttr(attribute);
+        $("#"+position.toString()).removeClass(attribute);
     }
 }
