@@ -10,7 +10,7 @@ import {
     GamePlanConfig
 } from "../../../../Configuration/GameConfig";
 import {
-    Direction
+    Direction, ObjectAttribute
 } from "../../../General/Enums";
 import {
     KeyValuePair
@@ -32,6 +32,8 @@ import { GameManagement } from "../../../GameManagement";
 
 import   { GameEvents}
 from "../../../General/GameEvents";
+import { GameCreation } from "../../../GameCreation";
+import { GameUtility } from "../../../General/GameUtility";
 
 export abstract class BasePlayer extends GameObject {
     ObjectVisual: ObjectOV;
@@ -47,6 +49,7 @@ export abstract class BasePlayer extends GameObject {
 
     Create(): void {
         ObjectUtility.AppearObject(this.name, this.ObjectVisual);
+
     }
 
     MoveInDirection(dir: Direction): boolean {
@@ -64,7 +67,8 @@ export abstract class BasePlayer extends GameObject {
 
     Move(dir: Direction): boolean {
         if(GameManagement.Puased==false) {
-          return this.MoveInDirection(dir);
+            var IsplayerMoved = this.MoveInDirection(dir);
+            return IsplayerMoved;
         }
         return false;
     }
@@ -107,12 +111,40 @@ export abstract class BasePlayer extends GameObject {
     }
 
     MoveX(nearGoal: any) {
+        debugger;
+        
         var direction: Direction = GameEvents.GetDirection(nearGoal.xArrow)
-        this.Move(direction)
+        var IsMoved =  this.Move(direction);
+        if(IsMoved)
+        {
+            this.CheckNewPostion()
+        }
+      
     }
 
     MoveY(nearGoal: any) {
+        debugger;
         var direction: Direction = GameEvents.GetDirection(nearGoal.yArrow)
-        this.Move(direction)
+        var IsMoved = this.Move(direction)
+        if(IsMoved)
+        {
+            this.CheckNewPostion()
+        }
     }
+
+    CheckNewPostion()
+    {
+            let postion= this._playerMovement.currentPosition
+            this.IsPlayerCatched(postion);
+    }   
+
+    IsPlayerCatched(position:number):void
+    {
+        var result = GameUtility.GetAttribute(position,ObjectAttribute.Player);
+        if (result !== undefined)
+        {
+            GameManagement.GameOver();
+        }
+    }
+
 }

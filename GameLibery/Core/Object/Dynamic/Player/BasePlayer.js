@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "jquery", "../../../../Configuration/GameConfig", "../../../General/Enums", "../../GameObject", "../../ObjectUtility", "../../../GameManagement", "../../../General/GameEvents"], factory);
+        define(["require", "exports", "jquery", "../../../../Configuration/GameConfig", "../../../General/Enums", "../../GameObject", "../../ObjectUtility", "../../../GameManagement", "../../../General/GameEvents", "../../../General/GameUtility"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -26,6 +26,7 @@ var __extends = (this && this.__extends) || (function () {
     var ObjectUtility_1 = require("../../ObjectUtility");
     var GameManagement_1 = require("../../../GameManagement");
     var GameEvents_1 = require("../../../General/GameEvents");
+    var GameUtility_1 = require("../../../General/GameUtility");
     var BasePlayer = /** @class */ (function (_super) {
         __extends(BasePlayer, _super);
         function BasePlayer(name, objectVisual, playerMovement) {
@@ -54,7 +55,8 @@ var __extends = (this && this.__extends) || (function () {
         };
         BasePlayer.prototype.Move = function (dir) {
             if (GameManagement_1.GameManagement.Puased == false) {
-                return this.MoveInDirection(dir);
+                var IsplayerMoved = this.MoveInDirection(dir);
+                return IsplayerMoved;
             }
             return false;
         };
@@ -93,12 +95,30 @@ var __extends = (this && this.__extends) || (function () {
             return parseInt(Id);
         };
         BasePlayer.prototype.MoveX = function (nearGoal) {
+            debugger;
             var direction = GameEvents_1.GameEvents.GetDirection(nearGoal.xArrow);
-            this.Move(direction);
+            var IsMoved = this.Move(direction);
+            if (IsMoved) {
+                this.CheckNewPostion();
+            }
         };
         BasePlayer.prototype.MoveY = function (nearGoal) {
+            debugger;
             var direction = GameEvents_1.GameEvents.GetDirection(nearGoal.yArrow);
-            this.Move(direction);
+            var IsMoved = this.Move(direction);
+            if (IsMoved) {
+                this.CheckNewPostion();
+            }
+        };
+        BasePlayer.prototype.CheckNewPostion = function () {
+            var postion = this._playerMovement.currentPosition;
+            this.IsPlayerCatched(postion);
+        };
+        BasePlayer.prototype.IsPlayerCatched = function (position) {
+            var result = GameUtility_1.GameUtility.GetAttribute(position, Enums_1.ObjectAttribute.Player);
+            if (result !== undefined) {
+                GameManagement_1.GameManagement.GameOver();
+            }
         };
         return BasePlayer;
     }(GameObject_1.GameObject));

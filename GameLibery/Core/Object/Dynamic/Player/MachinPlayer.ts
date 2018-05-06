@@ -24,15 +24,15 @@ import {
 import {
     MachinMovement
 } from '../../../Action/Movement/MachinMovement';
-import {
-    Block
-} from '../../Static/Block/Block';
+
 import {
     ObjectUtility
 } from "../../ObjectUtility";
 import {
     ObjectOV
 } from "../../../../Configuration/ObjectVisual";
+import { GameUtility } from "../../../General/GameUtility";
+import { GameManagement } from "../../../GameManagement";
 
 export class MachinPlayer extends BasePlayer {
 
@@ -84,7 +84,7 @@ export class MachinPlayer extends BasePlayer {
                 that.MoveInY(nearGoal)
             } else {
 
-                that.MoveX(nearGoal)
+                let IsMoved= that.MoveX(nearGoal)
                 X_Repeat--;
             }
             var direction: Direction = GameEvents.GetDirection(nearGoal.xArrow)
@@ -117,7 +117,7 @@ export class MachinPlayer extends BasePlayer {
                 window.clearTimeout(sss);
                 that.MoveMachin()
             } else {
-                that.MoveY(nearGoal)
+                var IsMoved = that.MoveY(nearGoal)
                 Y_Repeat--;
             }
 
@@ -126,7 +126,7 @@ export class MachinPlayer extends BasePlayer {
                 if (MachinMovement.IsDeadLock(Direction.Up, that._playerMovement.currentPosition) &&
                     MachinMovement.IsDeadLock(Direction.Down, that._playerMovement.currentPosition)) {
                     Y_Repeat = 0
-                }  
+                }
             }
         }, this.speed);
     }

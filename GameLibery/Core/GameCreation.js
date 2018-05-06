@@ -4,7 +4,7 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "jquery", "./Object/GamePlan", "./Object/Dynamic/Player/HumanPlayer", "./Object/Dynamic/Player/MachinPlayer", "./Object/Static/ObjectFactory", "./Object/Dynamic/Player/MachinPlayer2", "../Configuration/ObjectVisual", "../Configuration/GameConfig"], factory);
+        define(["require", "exports", "jquery", "./Object/GamePlan", "./Object/Dynamic/Player/HumanPlayer", "./Object/Dynamic/Player/MachinPlayer", "./Object/Static/ObjectFactory", "./Object/Dynamic/Player/MachinPlayer2", "../Configuration/ObjectVisual", "../Configuration/GameConfig", "./General/Enums"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -17,6 +17,7 @@
     var MachinPlayer2_1 = require("./Object/Dynamic/Player/MachinPlayer2");
     var ObjectVisual_1 = require("../Configuration/ObjectVisual");
     var GameConfig_1 = require("../Configuration/GameConfig");
+    var Enums_1 = require("./General/Enums");
     var GameCreation = /** @class */ (function () {
         // tslint:disable-next-line:no-empty
         function GameCreation() {
@@ -24,26 +25,28 @@
         GameCreation.initialize = function () {
             GamePlan_1.GamePlan.getInstance().CreateChessboardPlan();
             var humanplayer = new HumanPlayer_1.HumanPlayer("bill", new ObjectVisual_1.BillGatesOV());
+            this.HumanPlayer = humanplayer;
             humanplayer.Create();
             $("#1").addClass(humanplayer.name);
-            this.HumanPlayer = humanplayer;
             var machinPlayer = new MachinPlayer_1.MachinPlayer("stevejobs", new ObjectVisual_1.SteveJobsOV(), 262);
             machinPlayer.Create();
+            // this.MachinPlayers.push(machinPlayer);
             $("#262").addClass(machinPlayer.name);
             machinPlayer.MoveMachin();
             var machinPlayer2 = new MachinPlayer2_1.MachinPlayer2("linus", new ObjectVisual_1.LinusOV(), 292);
             machinPlayer2.Create();
+            //this.MachinPlayers.push(machinPlayer2);
             $("#292").addClass(machinPlayer2.name);
             machinPlayer2.MoveMachin();
-            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(15, 'block', new ObjectVisual_1.FireOV());
-            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(15, 'block2', new ObjectVisual_1.StoneOV());
-            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(15, 'block3', new ObjectVisual_1.HoleOV());
-            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(20, 'block4', new ObjectVisual_1.PineTreeOV());
-            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(15, 'block5', new ObjectVisual_1.GrassOV());
-            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(20, 'block6', new ObjectVisual_1.PalmTreeOV());
-            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(15, 'block7', new ObjectVisual_1.CoconutPalmTreeOV());
+            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(25, 'block', new ObjectVisual_1.FireOV(), Enums_1.ObjectAttribute.kill);
+            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(15, 'block2', new ObjectVisual_1.StoneOV(), Enums_1.ObjectAttribute.block);
+            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(25, 'block3', new ObjectVisual_1.HoleOV(), Enums_1.ObjectAttribute.kill);
+            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(20, 'block4', new ObjectVisual_1.PineTreeOV(), Enums_1.ObjectAttribute.block);
+            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(25, 'block5', new ObjectVisual_1.GrassOV(), Enums_1.ObjectAttribute.block);
+            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(20, 'block6', new ObjectVisual_1.PalmTreeOV(), Enums_1.ObjectAttribute.block);
+            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(15, 'block7', new ObjectVisual_1.CoconutPalmTreeOV(), Enums_1.ObjectAttribute.block);
             //------------------------Goals Creation----------------------------
-            ObjectFactory_1.ObjectFactory.CreateRandomSingleGoals(this.GoalCount, 'goal', new ObjectVisual_1.GoalOV());
+            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(this.GoalCount, 'goal', new ObjectVisual_1.GoalOV(), Enums_1.ObjectAttribute.Goal);
         };
         GameCreation.GoalCount = GameConfig_1.GoalConfig.GoalCount;
         return GameCreation;

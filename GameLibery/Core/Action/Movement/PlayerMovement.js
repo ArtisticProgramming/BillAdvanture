@@ -4,7 +4,7 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "../../../Configuration/GameConfig", "../../Object/Camera", "../../General/Enums", "../Constraint/ActionConstraint"], factory);
+        define(["require", "exports", "../../../Configuration/GameConfig", "../../Object/Camera", "../../General/Enums", "../Constraint/ActionConstraint", "../../Object/ObjectUtility"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -13,6 +13,7 @@
     var Camera_1 = require("../../Object/Camera");
     var Enums_1 = require("../../General/Enums");
     var ActionConstraint_1 = require("../Constraint/ActionConstraint");
+    var ObjectUtility_1 = require("../../Object/ObjectUtility");
     var PlayerMovement = /** @class */ (function () {
         // tslint:disable-next-line:no-empty
         function PlayerMovement(name) {
@@ -71,7 +72,9 @@
         PlayerMovement.prototype.UpdatePosition = function (oldPostion, newPostion) {
             this.currentPosition = newPostion;
             $("#" + oldPostion.toString()).removeClass(this.name);
+            ObjectUtility_1.ObjectUtility.DeleteObject(oldPostion, Enums_1.ObjectAttribute.Player);
             $("#" + newPostion.toString()).addClass(this.name);
+            ObjectUtility_1.ObjectUtility.AddObjectAttribute(newPostion, Enums_1.ObjectAttribute.Player);
         };
         return PlayerMovement;
     }());

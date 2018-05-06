@@ -6,7 +6,7 @@ import {
     PlayerMovement
 } from "../../../Action/Movement/PlayerMovement";
 import {
-    Direction
+    Direction, ObjectAttribute
 } from '../../../General/Enums';
 import {
     BasePlayer
@@ -23,12 +23,12 @@ import {
 import {
     MachinMovement
 } from "../../../Action/Movement/MachinMovement";
-import {
-    Block
-} from '../../Static/Block/Block';
+
 import {
     ObjectOV
 } from "../../../../Configuration/ObjectVisual";
+import { GameUtility } from "../../../General/GameUtility";
+import { GameManagement } from "../../../GameManagement";
 
 export class MachinPlayer2 extends BasePlayer {
 
@@ -47,9 +47,7 @@ export class MachinPlayer2 extends BasePlayer {
 
 
     MoveMachin() {
-
         this.RunIntelligenceMachin(this._playerMovement.currentPosition)
-
     }
 
     RunIntelligenceMachin(PostionparseId: number): void {
@@ -80,7 +78,8 @@ export class MachinPlayer2 extends BasePlayer {
                 that.MoveMachin()
             } else {
 
-                that.MoveX(nearGoal)
+               let IsMoved = that.MoveX(nearGoal)
+               
                 X_Repeat--;
 
             }
@@ -116,7 +115,7 @@ export class MachinPlayer2 extends BasePlayer {
                 window.clearTimeout(sss);
                 that.MoveInX(nearGoal)
             } else {
-                that.MoveY(nearGoal)
+               let IsMoved = that.MoveY(nearGoal)
                 Y_Repeat--;
             }
 
@@ -129,5 +128,5 @@ export class MachinPlayer2 extends BasePlayer {
             }
         }, this.speed);
     }
-    
+   
 }

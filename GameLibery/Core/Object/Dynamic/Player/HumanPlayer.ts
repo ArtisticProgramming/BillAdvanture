@@ -19,24 +19,29 @@ export class HumanPlayer extends BasePlayer {
 
     Create(): void {
         super.Create();
+        let postion= GameCreation.HumanPlayer._playerMovement.currentPosition;
+        ObjectUtility.AddObjectAttribute(postion, ObjectAttribute.Player);
+        
     }
 
     Move(direction:Direction):boolean {
       var IsplayerMoved = super.Move(direction);
       if(IsplayerMoved==true)
-      {
+       this.CheckNewPostion();
+      return IsplayerMoved;
+    }
+
+    CheckNewPostion(){
         let postion= GameCreation.HumanPlayer._playerMovement.currentPosition;
         //check for goal 
         this.CheckForGoal(postion);
         //check for kill
         this.CheckForkill(postion);
-      }
-      return IsplayerMoved;
+        this.CheckCollisionWithMachinPlayer(postion);
     }
-
+    
     CheckForGoal(position:number):void
     {
-        
         var result = GameUtility.GetAttribute(position,ObjectAttribute.Goal);
         if (result !== undefined)
         {
@@ -46,7 +51,20 @@ export class HumanPlayer extends BasePlayer {
 
     CheckForkill(position:number):void
     {
+        var result = GameUtility.GetAttribute(position,ObjectAttribute.kill);
+        if (result !== undefined)
+        {
+            GameManagement.GameOver();
+        }
+    }
 
+    CheckCollisionWithMachinPlayer(position:number):void
+    {
+        var result = GameUtility.GetAttribute(position,ObjectAttribute.BlockMachainPlayer);
+        if (result !== undefined)
+        {
+            GameManagement.GameOver();
+        }
     }
 
 }

@@ -12,6 +12,7 @@ import {
 
 import { Direction, ObjectAttribute } from '../../General/Enums';
 import { ActionConstraint } from "../Constraint/ActionConstraint";
+import { ObjectUtility } from "../../Object/ObjectUtility";
 
 
 export class PlayerMovement implements IPlayerMovement {
@@ -79,7 +80,9 @@ export class PlayerMovement implements IPlayerMovement {
     UpdatePosition(oldPostion: number, newPostion: number): void {
         this.currentPosition = newPostion;
         $("#" + oldPostion.toString()).removeClass(this.name);
+        ObjectUtility.DeleteObject(oldPostion, ObjectAttribute.Player);
         $("#" + newPostion.toString()).addClass(this.name);
+        ObjectUtility.AddObjectAttribute(newPostion, ObjectAttribute.Player);
     }
 
 }

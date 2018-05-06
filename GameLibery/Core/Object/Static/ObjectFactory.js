@@ -4,37 +4,26 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./Block/Block", "../../General/GameUtility", "../../../Configuration/GameConfig", "./Block/Goal"], factory);
+        define(["require", "exports", "../../General/GameUtility", "../../../Configuration/GameConfig", "./Block/StaticObject"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var Block_1 = require("./Block/Block");
     var GameUtility_1 = require("../../General/GameUtility");
     var GameConfig_1 = require("../../../Configuration/GameConfig");
-    var Goal_1 = require("./Block/Goal");
+    var StaticObject_1 = require("./Block/StaticObject");
     var ObjectFactory = /** @class */ (function () {
         function ObjectFactory() {
         }
-        ObjectFactory.CreateRandomSingleBlocks = function (count, name, objectVisual) {
+        ObjectFactory.CreateRandomSingleBlocks = function (count, name, objectVisual, objectType) {
             var SingleBlocks = new Array();
             for (var i = 0; i < count; i++) {
                 var randomPosotion = ObjectFactory.GetProperRandomNumber();
-                var block = new Block_1.Block(name, objectVisual, randomPosotion);
+                var block = new StaticObject_1.StaticObject(name, objectVisual, randomPosotion, objectType);
                 block.Create();
                 SingleBlocks.push(block);
             }
             return SingleBlocks;
-        };
-        ObjectFactory.CreateRandomSingleGoals = function (count, name, objectVisual) {
-            var SingleGoals = new Array();
-            for (var i = 0; i < count; i++) {
-                var randomPosotion = ObjectFactory.GetProperRandomNumber();
-                var goal = new Goal_1.Goal(name, objectVisual, randomPosotion);
-                goal.Create();
-                SingleGoals.push(goal);
-            }
-            return SingleGoals;
         };
         ObjectFactory.GetProperRandomNumber = function () {
             var randomNumber = 0;

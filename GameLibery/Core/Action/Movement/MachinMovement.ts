@@ -108,6 +108,7 @@ export class MachinMovement implements IPlayerMovement {
 
         $("#" + oldPostion.toString()).removeClass(this.name);
         $("#" + newPostion.toString()).addClass(this.name);
+
     }
 
 }

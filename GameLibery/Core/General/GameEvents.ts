@@ -10,7 +10,7 @@ export class GameEvents {
     }
 
     ManageEvents(keyCode: number): void {
-        debugger;
+  
         this.GameMangeEvent(keyCode);
         this.ProccessDirectionEvent(keyCode);
         

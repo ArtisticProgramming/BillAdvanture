@@ -27,14 +27,14 @@
             var fucnc = window.setInterval(function () {
                 alert("You Win!");
                 window.clearTimeout(fucnc);
-            }, 500);
+            }, 200);
         };
         GameManagement.GameOver = function () {
             this.GameEnd();
             var fucnc = window.setInterval(function () {
                 alert("Game Over!");
                 window.clearTimeout(fucnc);
-            }, 500);
+            }, 200);
         };
         GameManagement.GameEnd = function () {
             this.Puased = true;

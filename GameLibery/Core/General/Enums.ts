@@ -16,5 +16,7 @@
         kill= "kill",
         Goal="goal",
         Passable ="Passable",
-        BlockMachainPlayer ="BlockMachainPlayer"
+        BlockMachainPlayer ="BlockMachainPlayer",
+        Player ="Player"
+        
     }

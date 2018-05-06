@@ -62,7 +62,7 @@ var __extends = (this && this.__extends) || (function () {
                     that.MoveMachin();
                 }
                 else {
-                    that.MoveX(nearGoal);
+                    var IsMoved = that.MoveX(nearGoal);
                     X_Repeat--;
                 }
                 var direction = GameEvents_1.GameEvents.GetDirection(nearGoal.xArrow);
@@ -92,7 +92,7 @@ var __extends = (this && this.__extends) || (function () {
                     that.MoveInX(nearGoal);
                 }
                 else {
-                    that.MoveY(nearGoal);
+                    var IsMoved = that.MoveY(nearGoal);
                     Y_Repeat--;
                 }
                 var direction = GameEvents_1.GameEvents.GetDirection(nearGoal.xArrow);

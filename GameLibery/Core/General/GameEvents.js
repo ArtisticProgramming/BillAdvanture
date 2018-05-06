@@ -17,7 +17,6 @@
         function GameEvents() {
         }
         GameEvents.prototype.ManageEvents = function (keyCode) {
-            debugger;
             this.GameMangeEvent(keyCode);
             this.ProccessDirectionEvent(keyCode);
         };

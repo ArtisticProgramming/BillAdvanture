@@ -27,6 +27,7 @@
         ObjectAttribute["Goal"] = "goal";
         ObjectAttribute["Passable"] = "Passable";
         ObjectAttribute["BlockMachainPlayer"] = "BlockMachainPlayer";
+        ObjectAttribute["Player"] = "Player";
     })(ObjectAttribute = exports.ObjectAttribute || (exports.ObjectAttribute = {}));
 });
 //# sourceMappingURL=Enums.js.map

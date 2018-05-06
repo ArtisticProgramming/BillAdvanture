@@ -20,7 +20,7 @@ export class GameManagement {
         var fucnc = window.setInterval(function () {
              alert("You Win!")    
              window.clearTimeout(fucnc);    
-        },500)
+        },200)
     }
 
     static  GameOver()
@@ -29,7 +29,7 @@ export class GameManagement {
         var fucnc = window.setInterval(function () {
         alert("Game Over!")  
         window.clearTimeout(fucnc);    
-       },500)      
+       },200)      
     }
 
     static GameEnd()

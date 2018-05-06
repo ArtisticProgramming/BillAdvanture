@@ -10,7 +10,7 @@ export class GamePlayerConfig {
 }
 
 export class GoalConfig {
-    public static GoalCount = 1;
+    public static GoalCount = 10;
 }
 export class CameraConfig {
     public static CameraSpeedVerically = 51;

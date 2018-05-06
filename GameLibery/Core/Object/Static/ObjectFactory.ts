@@ -1,8 +1,8 @@
-import { Block } from './Block/Block';
 import { GameUtility } from '../../General/GameUtility';
 import { GamePlanConfig } from '../../../Configuration/GameConfig';
 import { ObjectOV } from '../../../Configuration/ObjectVisual';
-import { Goal } from './Block/Goal';
+import { StaticObject } from './Block/StaticObject';
+import { ObjectAttribute } from '../../General/Enums';
 export class ObjectFactory {
 
     static reservedCellList: Array<number> = 
@@ -13,14 +13,14 @@ export class ObjectFactory {
         2+GamePlanConfig.HorizontalCell,
         3+GamePlanConfig.HorizontalCell];
 
-    static CreateRandomSingleBlocks(count:number,name:string,objectVisual:ObjectOV):Array<Block>
+    static CreateRandomSingleBlocks(count:number,name:string,objectVisual:ObjectOV,objectType:ObjectAttribute):Array<StaticObject>
     {
         
-        let SingleBlocks:Array<Block> = new Array<Block>();
+        let SingleBlocks:Array<StaticObject> = new Array<StaticObject>();
         
         for (let i = 0; i < count ; i++) { 
             var randomPosotion= ObjectFactory.GetProperRandomNumber();
-            let block= new Block(name, objectVisual,randomPosotion );
+            let block= new StaticObject(name, objectVisual,randomPosotion, objectType);
             block.Create();
             SingleBlocks.push(block);
         }
@@ -29,19 +29,6 @@ export class ObjectFactory {
     }
     
 
-    static CreateRandomSingleGoals(count:number,name:string,objectVisual:ObjectOV):Array<Goal>
-    {
-        let SingleGoals:Array<Goal> = new Array<Goal>();
-        
-        for (let i = 0; i < count ; i++) { 
-            var randomPosotion= ObjectFactory.GetProperRandomNumber();
-            let goal= new Goal(name, objectVisual,randomPosotion);
-            goal.Create();
-            SingleGoals.push(goal);
-        }
-        
-        return  SingleGoals;
-    }
 
     static GetProperRandomNumber() : number {
         let randomNumber =0;
