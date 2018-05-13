@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "../../../General/Enums", "./BasePlayer", "../../../GameCreation", "../../../General/GameEvents", "../../../Action/Movement/MachinMovement"], factory);
+        define(["require", "exports", "../../../General/Enums", "./BasePlayer", "../../../GameCreation", "../../../../Configuration/GameConfig", "../../../General/GameEvents", "../../../Action/Movement/MachinMovement"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -22,13 +22,14 @@ var __extends = (this && this.__extends) || (function () {
     var Enums_1 = require("../../../General/Enums");
     var BasePlayer_1 = require("./BasePlayer");
     var GameCreation_1 = require("../../../GameCreation");
+    var GameConfig_1 = require("../../../../Configuration/GameConfig");
     var GameEvents_1 = require("../../../General/GameEvents");
     var MachinMovement_1 = require("../../../Action/Movement/MachinMovement");
     var MachinPlayer2 = /** @class */ (function (_super) {
         __extends(MachinPlayer2, _super);
         function MachinPlayer2(name, objectVisual, postionId) {
             var _this = _super.call(this, name, objectVisual, new MachinMovement_1.MachinMovement(name)) || this;
-            _this.speed = 90;
+            _this.speed = GameConfig_1.MachinPlayer2Config.speed;
             _this.blocked = false;
             _this._playerMovement.currentPosition = postionId;
             return _this;

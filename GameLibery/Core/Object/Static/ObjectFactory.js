@@ -41,7 +41,8 @@
                 var left_down = down + 1;
                 arrNumber.push(left, right, up, down
                 // ,right_down
-                , right_Up, letf_Up
+                // ,right_Up
+                // ,letf_Up
                 // ,left_down
                 , rand);
                 for (var i = 0; i < arrNumber.length; i++) {

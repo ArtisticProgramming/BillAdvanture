@@ -4,7 +4,7 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "jquery", "./Object/GamePlan", "./Object/Dynamic/Player/HumanPlayer", "./Object/Dynamic/Player/MachinPlayer", "./Object/Static/ObjectFactory", "./Object/Dynamic/Player/MachinPlayer2", "../Configuration/ObjectVisual", "../Configuration/GameConfig", "./General/Enums"], factory);
+        define(["require", "exports", "jquery", "./Object/GamePlan", "./Object/Dynamic/Player/HumanPlayer", "./Object/Dynamic/Player/MachinPlayer", "./Object/Static/ObjectFactory", "./Object/Dynamic/Player/MachinPlayer2", "../Configuration/ObjectVisual", "../Configuration/GameConfig", "./General/Enums", "./GameManagement"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -18,6 +18,7 @@
     var ObjectVisual_1 = require("../Configuration/ObjectVisual");
     var GameConfig_1 = require("../Configuration/GameConfig");
     var Enums_1 = require("./General/Enums");
+    var GameManagement_1 = require("./GameManagement");
     var GameCreation = /** @class */ (function () {
         // tslint:disable-next-line:no-empty
         function GameCreation() {
@@ -38,15 +39,21 @@
             //this.MachinPlayers.push(machinPlayer2);
             $("#292").addClass(machinPlayer2.name);
             machinPlayer2.MoveMachin();
-            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(25, 'block', new ObjectVisual_1.FireOV(), Enums_1.ObjectAttribute.kill);
-            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(15, 'block2', new ObjectVisual_1.StoneOV(), Enums_1.ObjectAttribute.block);
-            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(25, 'block3', new ObjectVisual_1.HoleOV(), Enums_1.ObjectAttribute.kill);
-            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(20, 'block4', new ObjectVisual_1.PineTreeOV(), Enums_1.ObjectAttribute.block);
+            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(35, 'block', new ObjectVisual_1.FireOV(), Enums_1.ObjectAttribute.kill);
+            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(25, 'block2', new ObjectVisual_1.StoneOV(), Enums_1.ObjectAttribute.block);
+            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(30, 'block3', new ObjectVisual_1.HoleOV(), Enums_1.ObjectAttribute.kill);
+            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(60, 'block4', new ObjectVisual_1.PineTreeOV(), Enums_1.ObjectAttribute.block);
             ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(25, 'block5', new ObjectVisual_1.GrassOV(), Enums_1.ObjectAttribute.block);
-            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(20, 'block6', new ObjectVisual_1.PalmTreeOV(), Enums_1.ObjectAttribute.block);
-            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(15, 'block7', new ObjectVisual_1.CoconutPalmTreeOV(), Enums_1.ObjectAttribute.block);
+            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(50, 'block6', new ObjectVisual_1.PalmTreeOV(), Enums_1.ObjectAttribute.block);
+            ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(45, 'block7', new ObjectVisual_1.CoconutPalmTreeOV(), Enums_1.ObjectAttribute.block);
             //------------------------Goals Creation----------------------------
             ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(this.GoalCount, 'goal', new ObjectVisual_1.GoalOV(), Enums_1.ObjectAttribute.Goal);
+            if (confirm('Start Game Now?')) {
+                GameManagement_1.GameManagement.GameStart();
+            }
+            else {
+                // Do nothing!
+            }
         };
         GameCreation.GoalCount = GameConfig_1.GoalConfig.GoalCount;
         return GameCreation;

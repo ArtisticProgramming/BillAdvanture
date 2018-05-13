@@ -51,8 +51,8 @@ export class ObjectFactory {
                 ,up
                 ,down
                // ,right_down
-                ,right_Up
-                ,letf_Up
+               // ,right_Up
+               // ,letf_Up
                // ,left_down
                 ,rand);
 

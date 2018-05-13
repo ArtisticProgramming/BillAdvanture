@@ -1,4 +1,6 @@
-﻿export class GamePlanConfig {
+﻿import { MachinPlayer } from '../Core/Object/Dynamic/Player/MachinPlayer';
+
+export class GamePlanConfig {
     public static RowCounterStart: number = 100000;
     public static CellCounterStart: number = 1;
     public static VerticalCell: number = 40;
@@ -15,4 +17,12 @@ export class GoalConfig {
 export class CameraConfig {
     public static CameraSpeedVerically = 51;
     public static CameraSpeedHorizontally = 43;
+}
+
+export class MachinPlayerConfig{
+    public static speed = 110;
+}
+
+export class MachinPlayer2Config{
+    public static speed = 100;
 }

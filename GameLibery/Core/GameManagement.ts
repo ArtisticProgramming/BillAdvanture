@@ -3,7 +3,7 @@ import { ObjectAttribute } from "./General/Enums";
 import { GameCreation } from "./GameCreation";
 
 export class GameManagement {
-   public static Puased = false;
+   public static Puased = true;
    static ReduceGoal(position:number)
     {
         ObjectUtility.DeleteObject(position, ObjectAttribute.Goal);
@@ -19,6 +19,7 @@ export class GameManagement {
         this.GameEnd(); 
         var fucnc = window.setInterval(function () {
              alert("You Win!")    
+             location.reload();
              window.clearTimeout(fucnc);    
         },200)
     }
@@ -28,6 +29,7 @@ export class GameManagement {
         this.GameEnd(); 
         var fucnc = window.setInterval(function () {
         alert("Game Over!")  
+        location.reload();
         window.clearTimeout(fucnc);    
        },200)      
     }
@@ -35,6 +37,11 @@ export class GameManagement {
     static GameEnd()
     {
         this.Puased=true;
+    }
+
+    static GameStart()
+    {
+        this.Puased=false;
     }
 
 }

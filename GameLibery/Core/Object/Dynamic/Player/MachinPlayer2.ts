@@ -15,7 +15,7 @@ import {
     GameCreation
 } from "../../../GameCreation";
 import {
-    GamePlanConfig
+    GamePlanConfig, MachinPlayer2Config
 } from '../../../../Configuration/GameConfig';
 import {
     GameEvents
@@ -32,7 +32,7 @@ import { GameManagement } from "../../../GameManagement";
 
 export class MachinPlayer2 extends BasePlayer {
 
-    speed: number = 90;
+    speed: number = MachinPlayer2Config.speed;
     blocked = false;
 
     constructor(name: string, objectVisual: ObjectOV, postionId: number) {

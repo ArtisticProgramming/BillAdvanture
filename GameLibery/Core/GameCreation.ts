@@ -34,6 +34,7 @@ import {
 import { GoalConfig } from "../Configuration/GameConfig";
 import { ObjectAttribute } from "./General/Enums";
 import { StaticObject } from './Object/Static/Block/StaticObject';
+import { GameManagement } from './GameManagement';
 
 export class GameCreation {
     public static GoalCount = GoalConfig.GoalCount;
@@ -64,14 +65,20 @@ export class GameCreation {
         machinPlayer2.MoveMachin();
 
 
-        ObjectFactory.CreateRandomSingleBlocks(25, 'block', new FireOV(),ObjectAttribute.kill)
-        ObjectFactory.CreateRandomSingleBlocks(15, 'block2', new StoneOV(),ObjectAttribute.block)
-        ObjectFactory.CreateRandomSingleBlocks(25, 'block3', new HoleOV(),ObjectAttribute.kill)
-        ObjectFactory.CreateRandomSingleBlocks(20, 'block4',new PineTreeOV(),ObjectAttribute.block)
+        ObjectFactory.CreateRandomSingleBlocks(35, 'block', new FireOV(),ObjectAttribute.kill)
+        ObjectFactory.CreateRandomSingleBlocks(25, 'block2', new StoneOV(),ObjectAttribute.block)
+        ObjectFactory.CreateRandomSingleBlocks(30, 'block3', new HoleOV(),ObjectAttribute.kill)
+        ObjectFactory.CreateRandomSingleBlocks(60, 'block4',new PineTreeOV(),ObjectAttribute.block)
         ObjectFactory.CreateRandomSingleBlocks(25, 'block5',new GrassOV(),ObjectAttribute.block)
-        ObjectFactory.CreateRandomSingleBlocks(20, 'block6', new PalmTreeOV(),ObjectAttribute.block)
-        ObjectFactory.CreateRandomSingleBlocks(15, 'block7',new CoconutPalmTreeOV(),ObjectAttribute.block)
+        ObjectFactory.CreateRandomSingleBlocks(50, 'block6', new PalmTreeOV(),ObjectAttribute.block)
+        ObjectFactory.CreateRandomSingleBlocks(45, 'block7',new CoconutPalmTreeOV(),ObjectAttribute.block)
         //------------------------Goals Creation----------------------------
         ObjectFactory.CreateRandomSingleBlocks(this.GoalCount, 'goal', new GoalOV(),ObjectAttribute.Goal)
+
+        if (confirm('Start Game Now?')) {
+           GameManagement.GameStart();
+        } else {
+            // Do nothing!
+        }
     }
 }

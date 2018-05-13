@@ -41,5 +41,19 @@
         return CameraConfig;
     }());
     exports.CameraConfig = CameraConfig;
+    var MachinPlayerConfig = /** @class */ (function () {
+        function MachinPlayerConfig() {
+        }
+        MachinPlayerConfig.speed = 110;
+        return MachinPlayerConfig;
+    }());
+    exports.MachinPlayerConfig = MachinPlayerConfig;
+    var MachinPlayer2Config = /** @class */ (function () {
+        function MachinPlayer2Config() {
+        }
+        MachinPlayer2Config.speed = 100;
+        return MachinPlayer2Config;
+    }());
+    exports.MachinPlayer2Config = MachinPlayer2Config;
 });
 //# sourceMappingURL=GameConfig.js.map

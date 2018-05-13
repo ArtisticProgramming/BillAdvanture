@@ -26,6 +26,7 @@
             this.GameEnd();
             var fucnc = window.setInterval(function () {
                 alert("You Win!");
+                location.reload();
                 window.clearTimeout(fucnc);
             }, 200);
         };
@@ -33,13 +34,17 @@
             this.GameEnd();
             var fucnc = window.setInterval(function () {
                 alert("Game Over!");
+                location.reload();
                 window.clearTimeout(fucnc);
             }, 200);
         };
         GameManagement.GameEnd = function () {
             this.Puased = true;
         };
-        GameManagement.Puased = false;
+        GameManagement.GameStart = function () {
+            this.Puased = false;
+        };
+        GameManagement.Puased = true;
         return GameManagement;
     }());
     exports.GameManagement = GameManagement;
