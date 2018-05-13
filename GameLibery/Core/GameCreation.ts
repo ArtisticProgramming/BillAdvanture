@@ -35,6 +35,7 @@ import { GoalConfig } from "../Configuration/GameConfig";
 import { ObjectAttribute } from "./General/Enums";
 import { StaticObject } from './Object/Static/Block/StaticObject';
 import { GameManagement } from './GameManagement';
+import { Music } from '../Utility/Music';
 
 export class GameCreation {
     public static GoalCount = GoalConfig.GoalCount;
@@ -76,7 +77,9 @@ export class GameCreation {
         ObjectFactory.CreateRandomSingleBlocks(this.GoalCount, 'goal', new GoalOV(),ObjectAttribute.Goal)
 
         if (confirm('Start Game Now?')) {
+           Music.playAudio();
            GameManagement.GameStart();
+           
         } else {
             // Do nothing!
         }

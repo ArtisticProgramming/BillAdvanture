@@ -95,7 +95,6 @@ var __extends = (this && this.__extends) || (function () {
             return parseInt(Id);
         };
         BasePlayer.prototype.MoveX = function (nearGoal) {
-            debugger;
             var direction = GameEvents_1.GameEvents.GetDirection(nearGoal.xArrow);
             var IsMoved = this.Move(direction);
             if (IsMoved) {
@@ -103,7 +102,6 @@ var __extends = (this && this.__extends) || (function () {
             }
         };
         BasePlayer.prototype.MoveY = function (nearGoal) {
-            debugger;
             var direction = GameEvents_1.GameEvents.GetDirection(nearGoal.yArrow);
             var IsMoved = this.Move(direction);
             if (IsMoved) {

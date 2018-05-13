@@ -111,7 +111,7 @@ export abstract class BasePlayer extends GameObject {
     }
 
     MoveX(nearGoal: any) {
-        debugger;
+       
         
         var direction: Direction = GameEvents.GetDirection(nearGoal.xArrow)
         var IsMoved =  this.Move(direction);
@@ -123,7 +123,7 @@ export abstract class BasePlayer extends GameObject {
     }
 
     MoveY(nearGoal: any) {
-        debugger;
+     
         var direction: Direction = GameEvents.GetDirection(nearGoal.yArrow)
         var IsMoved = this.Move(direction)
         if(IsMoved)

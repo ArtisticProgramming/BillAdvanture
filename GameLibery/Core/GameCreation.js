@@ -4,7 +4,7 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "jquery", "./Object/GamePlan", "./Object/Dynamic/Player/HumanPlayer", "./Object/Dynamic/Player/MachinPlayer", "./Object/Static/ObjectFactory", "./Object/Dynamic/Player/MachinPlayer2", "../Configuration/ObjectVisual", "../Configuration/GameConfig", "./General/Enums", "./GameManagement"], factory);
+        define(["require", "exports", "jquery", "./Object/GamePlan", "./Object/Dynamic/Player/HumanPlayer", "./Object/Dynamic/Player/MachinPlayer", "./Object/Static/ObjectFactory", "./Object/Dynamic/Player/MachinPlayer2", "../Configuration/ObjectVisual", "../Configuration/GameConfig", "./General/Enums", "./GameManagement", "../Utility/Music"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -19,6 +19,7 @@
     var GameConfig_1 = require("../Configuration/GameConfig");
     var Enums_1 = require("./General/Enums");
     var GameManagement_1 = require("./GameManagement");
+    var Music_1 = require("../Utility/Music");
     var GameCreation = /** @class */ (function () {
         // tslint:disable-next-line:no-empty
         function GameCreation() {
@@ -49,6 +50,7 @@
             //------------------------Goals Creation----------------------------
             ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(this.GoalCount, 'goal', new ObjectVisual_1.GoalOV(), Enums_1.ObjectAttribute.Goal);
             if (confirm('Start Game Now?')) {
+                Music_1.Music.playAudio();
                 GameManagement_1.GameManagement.GameStart();
             }
             else {
