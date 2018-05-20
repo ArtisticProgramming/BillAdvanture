@@ -42,7 +42,7 @@
         };
         Menu.OpenGameOverMenu = function () {
             this.gameOverModal = new jBox('Modal', {
-                content: "<img src='../image/gameover2.jpg'>",
+                content: $("#gameover").html(),
                 closeButton: true,
                 closeOnEsc: true,
                 onClose: function () {
@@ -54,7 +54,7 @@
         };
         Menu.OpenWinMenu = function () {
             this.winModal = new jBox('Modal', {
-                content: " <img src='../image/win.jpg'>",
+                content: $("#win").html(),
                 closeButton: true,
                 closeOnEsc: true,
                 onClose: function () {

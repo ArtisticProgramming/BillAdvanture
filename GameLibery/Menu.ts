@@ -47,7 +47,7 @@ export class Menu {
     static OpenGameOverMenu():void
     {
         this.gameOverModal = new jBox('Modal', {
-                content: "<img src='../image/gameover2.jpg'>",
+                content: $("#gameover").html(),
                 closeButton:true,
                 closeOnEsc:true,
                 onClose: function() {
@@ -62,7 +62,7 @@ export class Menu {
     static OpenWinMenu():void
     {
         this.winModal = new jBox('Modal', {
-                content: " <img src='../image/.jpg'>",
+                content: $("#win").html(),
                 closeButton:true,
                 closeOnEsc:true,
                 onClose: function() {
