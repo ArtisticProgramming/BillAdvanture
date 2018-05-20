@@ -1,40 +1,150 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
+
     <link href="Style/app.css" rel="stylesheet" />
+
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="//code.jboxcdn.com/0.4.9/jBox.min.js"></script>
+    <link href="//code.jboxcdn.com/0.4.9/jBox.css" rel="stylesheet">
+
     <script src="require.js" data-main="main.js"></script>
     <script>
-       window.onload = function() {
+          loadAudio=  function () {
+            var button = document.getElementById('button');
+            var audio = document.getElementById('audio');
+
+                    var onClick = function () {
+                        alert("");
+                        audio.play(); // audio will load and then play
+                    };
+         
+            }
+        $(document).ready(function () {
+            var playModal;
+            playModal = new jBox('Modal', {
+                // title: 'Hello!',
+                    content: $("#gameStart").html(),
+                    title:"Game",
+                    draggable: 'title'
+                // theme: 'ModalBorder',
+                });
+                playModal.open();
+
+             var aboutModal;
+             aboutModal = new jBox('Modal', {
+                // title: 'Hello!',
+                    content: $("#about").html(),
+                    title:"About",
+                    draggable: 'title',
+                    closeButton:true,
+                    closeOnEsc:true,
+                    theme: 'ModalBorder',
+                });
+
+                 var sourceCodeModal;
+                 sourceCodeModal = new jBox('Modal', {
+                // title: 'Hello!',
+                    content: $("#sourcecode").html(),
+                    title:"Source Code",
+                    draggable: 'title',
+                    closeButton:true,
+                    closeOnEsc:true,
+                    theme: 'ModalBorder',
+                });
+
+               var settingModal;
+                   settingModal = new jBox('Modal', {
+                    content: $("#setting").html(),
+                    title:"Setting",
+                    draggable: 'title',
+                    closeButton:true,
+                    closeOnEsc:true,
+                    theme: 'ModalBorder',
+                });
+
+            $("body").on("click",".play",function(){
+                playModal.close();
+            })
+
+            $("body").on("click",".setting",function(){
+                settingModal.open();
+                
+            })
+
+            $("body").on("click",".about",function(){
+                aboutModal.open();
+            })
+
+            $("body").on("click",".sourcecode",function(){
+                sourceCodeModal.open();
+            })
+            
+            $("body").on("click",".exit",function(){
+            })
+
+
+
+
+            loadAudio();
             require(['GameLibery/Game'], function (Game) {
                 var game = new Game();
             });
-        }
+        })
     </script>
 </head>
+
 <body>
-        <img src="image/w10.jpg" alt="Book" id="book" style="display: none">
-        <img src="image/brick2.jpg" alt="Book" id="book" style="display: none">
-        <img src="image/tree.png" alt="Book" id="book" style="display: none">
-        <img src="image/tree3.png" alt="Book" id="book" style="display: none">
-        <img src="image/tree5.png" alt="Book" id="book" style="display: none">
-        <img src="image/wallBrick.png" alt="Book" id="book" style="display: none">
-        <img src="image/fire.gif" alt="Book" id="book" style="display: none">
-        <img src="image/hole.png" alt="Book" id="book" style="display: none">
-        <img src="image/stone.png" alt="Book" id="book" style="display: none">
-        <img src="image/grass.png" alt="Book" id="book" style="display: none">
-        <img src="image/windows.png" alt="Book" id="book" style="display: none">
-        
+    <img src="image/w10.jpg" alt="Book" id="book" style="display: none">
+    <img src="image/brick2.jpg" alt="Book" id="book" style="display: none">
+    <img src="image/tree.png" alt="Book" id="book" style="display: none">
+    <img src="image/tree3.png" alt="Book" id="book" style="display: none">
+    <img src="image/tree5.png" alt="Book" id="book" style="display: none">
+    <img src="image/wallBrick.png" alt="Book" id="book" style="display: none">
+    <img src="image/fire.gif" alt="Book" id="book" style="display: none">
+    <img src="image/hole.png" alt="Book" id="book" style="display: none">
+    <img src="image/stone.png" alt="Book" id="book" style="display: none">
+    <img src="image/grass.png" alt="Book" id="book" style="display: none">
+    <img src="image/windows.png" alt="Book" id="book" style="display: none">
+  
     <div id="GameStruct">
-      <div id="camera" class='camera'>
-          <table id="GamePalne" border="1"></table>
-       </div>
-      
+        <div id="camera" class='camera'>
+            <table id="GamePalne" border="1"></table>
+        </div>
     </div>
-    <audio id="audio"   >
-            <source src="Music/musicgm.ogg" type="audio/ogg">
-            <source src="Music/musicgm.mp3" type="audio/mpeg">
-                
-          Your browser does not support the audio element.
-          </audio>
+
+    <audio id="audio">
+        <source src="Music/musicgm.mp3" type="audio/mp3" /> Your browser doesn't support this audio format.
+    </audio>
 </body>
-</html>
+
+<div id="gameStart" style="display: none">
+  
+        <img src="image/wellcome.png"  >
+        <br/>
+        <h2 style="text-align: center" >Bill Gates In the Jungle</h3>
+        <a  href="#" class="myButton2 play">Play</a>
+        <a  href="#" class="myButton4 setting">Setting</a>
+        <a  href="#" class="myButton5 sourcecode">Source Code</a>
+        <a  href="#" class="myButton about">About</a>
+        <a  href="#" class="myButton3 exit">Exit</a>
+  
+</div>
+
+
+<div id="setting" style="display: none">
+    <p>hello</p>
+</div>
+
+
+<div id="about" style="display: none">
+     <h2>Creator: Mostafa Jafari</h2>
+    <h2>Contact Email: skysystem2017@gmail.com</h2>
+</div>
+
+<div id="sourcecode" style="display: none">
+<h2>Source Code On Github: </h3>
+    <a class="myButton"  href="https://github.com/ArtisticProgramming/BillAdvanture/" target="_blank">https://github.com/ArtisticProgramming/BillAdvanture/</a>
+     
+</div>

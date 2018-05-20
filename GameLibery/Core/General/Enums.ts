@@ -3,6 +3,7 @@
         Down = 40,
         Left = 37,
         Right = 39,
+        None=-1
     }
 
     export enum GameMangemntKey

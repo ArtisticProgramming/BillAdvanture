@@ -26,7 +26,7 @@
             this.GameEnd();
             var fucnc = window.setInterval(function () {
                 alert("You Win!");
-                location.reload();
+                // location.reload();
                 window.clearTimeout(fucnc);
             }, 200);
         };
@@ -34,7 +34,7 @@
             this.GameEnd();
             var fucnc = window.setInterval(function () {
                 alert("Game Over!");
-                location.reload();
+                // location.reload();
                 window.clearTimeout(fucnc);
             }, 200);
         };

@@ -35,9 +35,11 @@
             // tslint:disable-next-line:typedef
             var directionString = Enums_1.Direction[keyCode];
             if (directionString == null) {
-                throw new Error("keyCode is wrong!");
+                return Enums_1.Direction.None; // throw new Error("keyCode is wrong!");
             }
-            var direction = Enums_1.Direction[directionString];
+            else {
+                var direction = Enums_1.Direction[directionString];
+            }
             return direction;
         };
         GameEvents.prototype.ProccessDirectionEvent = function (keyCode) {

@@ -62,6 +62,9 @@ export abstract class BasePlayer extends GameObject {
                 return this._playerMovement.Left();
             case Direction.Down:
                 return this._playerMovement.Down();
+            case Direction.None:
+                return false;
+
         }
     }
 

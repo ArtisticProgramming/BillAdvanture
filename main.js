@@ -12,7 +12,11 @@ requirejs.config({
         // is using jQuery 1.9.0 located at
         // js/lib/jquery-1.9.0.js, relative to
         // the HTML page.
-        jquery: 'jquery.min'
-    }
+        // jquery: 'jquery.min',
+        // remodal: 'node_modules/remodal/dist/remodal.min'
+    },
+    // shim: {
+    //     'remodal': ['jquery'],
+    // }
 });
 

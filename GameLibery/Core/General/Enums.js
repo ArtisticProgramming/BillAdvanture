@@ -15,6 +15,7 @@
         Direction[Direction["Down"] = 40] = "Down";
         Direction[Direction["Left"] = 37] = "Left";
         Direction[Direction["Right"] = 39] = "Right";
+        Direction[Direction["None"] = -1] = "None";
     })(Direction = exports.Direction || (exports.Direction = {}));
     var GameMangemntKey;
     (function (GameMangemntKey) {

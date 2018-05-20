@@ -51,6 +51,8 @@ var __extends = (this && this.__extends) || (function () {
                     return this._playerMovement.Left();
                 case Enums_1.Direction.Down:
                     return this._playerMovement.Down();
+                case Enums_1.Direction.None:
+                    return false;
             }
         };
         BasePlayer.prototype.Move = function (dir) {

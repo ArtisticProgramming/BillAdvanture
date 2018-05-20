@@ -4,11 +4,12 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "../Core/General/GameEvents"], factory);
+        define(["require", "exports", "../Core/GameManagement", "../Core/General/GameEvents"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    var GameManagement_1 = require("../Core/GameManagement");
     var GameEvents = require("../Core/General/GameEvents");
     var EventHandler = /** @class */ (function () {
         function EventHandler() {
@@ -19,6 +20,16 @@
                 var gameEv = new GameEvents.GameEvents();
                 gameEv.ManageEvents(e.keyCode);
             });
+        };
+        EventHandler.RegisterPlayClick = function () {
+            var _this = this;
+            debugger;
+            var btn = document.getElementById("play");
+            $("body").on("click", ".play", function (event) { return _this.startGame(); });
+        };
+        EventHandler.startGame = function () {
+            //   alert("play");
+            GameManagement_1.GameManagement.GameStart();
         };
         return EventHandler;
     }());

@@ -7,7 +7,10 @@ export class GameEvents {
 
     // tslint:disable-next-line:no-empty
     constructor() {
+     
     }
+
+ 
 
     ManageEvents(keyCode: number): void {
   
@@ -33,9 +36,10 @@ export class GameEvents {
         // tslint:disable-next-line:typedef
         let directionString :string = Direction[keyCode];
         if (directionString == null) {
-           throw new Error("keyCode is wrong!");
+         return Direction.None; // throw new Error("keyCode is wrong!");
+        }else   {
+            var direction: Direction = Direction[directionString as keyof typeof Direction ];
         }
-        var direction: Direction = Direction[directionString as keyof typeof Direction ];
         return direction;
     }
 

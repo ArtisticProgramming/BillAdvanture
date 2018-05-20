@@ -53,10 +53,10 @@ export class GameCreation {
         humanplayer.Create();
         $("#1").addClass(humanplayer.name);
 
-        let machinPlayer: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 262);
+        let machinPlayer: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 282);
         machinPlayer.Create();
        // this.MachinPlayers.push(machinPlayer);
-        $("#262").addClass(machinPlayer.name);
+        $("#282").addClass(machinPlayer.name);
         machinPlayer.MoveMachin();
 
         let machinPlayer2: MachinPlayer2 = new MachinPlayer2("linus", new LinusOV(), 292);
@@ -65,6 +65,32 @@ export class GameCreation {
         $("#292").addClass(machinPlayer2.name);
         machinPlayer2.MoveMachin();
 
+
+        let machinPlayer3: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 20);
+        machinPlayer3.Create();
+       // this.MachinPlayers.push(machinPlayer);
+        $("#20").addClass(machinPlayer3.name);
+        machinPlayer3.MoveMachin();
+        
+        let machinPlayer4: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 40);
+        machinPlayer4.Create();
+       // this.MachinPlayers.push(machinPlayer);
+        $("#20").addClass(machinPlayer4.name);
+        machinPlayer4.MoveMachin();
+
+        
+        let machinPlayer5: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 30);
+        machinPlayer5.Create();
+       // this.MachinPlayers.push(machinPlayer);
+        $("#20").addClass(machinPlayer5.name);
+        machinPlayer5.MoveMachin();
+
+        
+        let machinPlayer6: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 80);
+        machinPlayer6.Create();
+       // this.MachinPlayers.push(machinPlayer);
+        $("#20").addClass(machinPlayer6.name);
+        machinPlayer6.MoveMachin();
 
         ObjectFactory.CreateRandomSingleBlocks(35, 'block', new FireOV(),ObjectAttribute.kill)
         ObjectFactory.CreateRandomSingleBlocks(25, 'block2', new StoneOV(),ObjectAttribute.block)
@@ -76,12 +102,5 @@ export class GameCreation {
         //------------------------Goals Creation----------------------------
         ObjectFactory.CreateRandomSingleBlocks(this.GoalCount, 'goal', new GoalOV(),ObjectAttribute.Goal)
 
-        if (confirm('Start Game Now?')) {
-           Music.playAudio();
-           GameManagement.GameStart();
-           
-        } else {
-            // Do nothing!
-        }
     }
 }
