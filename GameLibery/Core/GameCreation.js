@@ -4,7 +4,7 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "jquery", "./Object/GamePlan", "./Object/Dynamic/Player/HumanPlayer", "./Object/Dynamic/Player/MachinPlayer", "./Object/Static/ObjectFactory", "./Object/Dynamic/Player/MachinPlayer2", "../Configuration/ObjectVisual", "../Configuration/GameConfig", "./General/Enums"], factory);
+        define(["require", "exports", "jquery", "./Object/GamePlan", "./Object/Dynamic/Player/HumanPlayer", "./Object/Dynamic/Player/MachinPlayer", "./Object/Static/ObjectFactory", "./Object/Dynamic/Player/MachinPlayer2", "../Configuration/ObjectVisual", "../Configuration/GameConfig", "./General/Enums", "../Menu"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -18,6 +18,7 @@
     var ObjectVisual_1 = require("../Configuration/ObjectVisual");
     var GameConfig_1 = require("../Configuration/GameConfig");
     var Enums_1 = require("./General/Enums");
+    var Menu_1 = require("../Menu");
     var GameCreation = /** @class */ (function () {
         // tslint:disable-next-line:no-empty
         function GameCreation() {
@@ -67,6 +68,7 @@
             ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(45, 'block7', new ObjectVisual_1.CoconutPalmTreeOV(), Enums_1.ObjectAttribute.block);
             //------------------------Goals Creation----------------------------
             ObjectFactory_1.ObjectFactory.CreateRandomSingleBlocks(this.GoalCount, 'goal', new ObjectVisual_1.GoalOV(), Enums_1.ObjectAttribute.Goal);
+            Menu_1.Menu.OpenMainMenu();
         };
         GameCreation.GoalCount = GameConfig_1.GoalConfig.GoalCount;
         return GameCreation;

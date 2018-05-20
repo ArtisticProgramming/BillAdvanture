@@ -1,6 +1,7 @@
 import { ObjectUtility } from "./Object/ObjectUtility";
 import { ObjectAttribute } from "./General/Enums";
 import { GameCreation } from "./GameCreation";
+import { Menu } from '../Menu';
 
 export class GameManagement {
    public static Puased = true;
@@ -18,9 +19,8 @@ export class GameManagement {
     {
         this.GameEnd(); 
         var fucnc = window.setInterval(function () {
-             alert("You Win!")    
-            // location.reload();
-             window.clearTimeout(fucnc);    
+            Menu.OpenWinMenu(); 
+            window.clearTimeout(fucnc);    
         },200)
     }
 
@@ -28,10 +28,22 @@ export class GameManagement {
     {
         this.GameEnd(); 
         var fucnc = window.setInterval(function () {
-        alert("Game Over!")  
+        Menu.OpenGameOverMenu()
        // location.reload();
         window.clearTimeout(fucnc);    
        },200)      
+    }
+
+    static GamePuased()
+    {
+        this.Puased= !this.Puased;
+        if (this.Puased)
+        {
+            Menu.playModal.open();
+        }else   {
+            Menu.playModal.close();
+        }
+        
     }
 
     static GameEnd()

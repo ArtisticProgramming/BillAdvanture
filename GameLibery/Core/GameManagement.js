@@ -4,7 +4,7 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./Object/ObjectUtility", "./General/Enums", "./GameCreation"], factory);
+        define(["require", "exports", "./Object/ObjectUtility", "./General/Enums", "./GameCreation", "../Menu"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -12,6 +12,7 @@
     var ObjectUtility_1 = require("./Object/ObjectUtility");
     var Enums_1 = require("./General/Enums");
     var GameCreation_1 = require("./GameCreation");
+    var Menu_1 = require("../Menu");
     var GameManagement = /** @class */ (function () {
         function GameManagement() {
         }
@@ -25,18 +26,26 @@
         GameManagement.PlayerWin = function () {
             this.GameEnd();
             var fucnc = window.setInterval(function () {
-                alert("You Win!");
-                // location.reload();
+                Menu_1.Menu.OpenWinMenu();
                 window.clearTimeout(fucnc);
             }, 200);
         };
         GameManagement.GameOver = function () {
             this.GameEnd();
             var fucnc = window.setInterval(function () {
-                alert("Game Over!");
+                Menu_1.Menu.OpenGameOverMenu();
                 // location.reload();
                 window.clearTimeout(fucnc);
             }, 200);
+        };
+        GameManagement.GamePuased = function () {
+            this.Puased = !this.Puased;
+            if (this.Puased) {
+                Menu_1.Menu.playModal.open();
+            }
+            else {
+                Menu_1.Menu.playModal.close();
+            }
         };
         GameManagement.GameEnd = function () {
             this.Puased = true;

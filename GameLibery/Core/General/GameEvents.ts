@@ -9,11 +9,8 @@ export class GameEvents {
     constructor() {
      
     }
-
- 
-
+    
     ManageEvents(keyCode: number): void {
-  
         this.GameMangeEvent(keyCode);
         this.ProccessDirectionEvent(keyCode);
         
@@ -28,7 +25,7 @@ export class GameEvents {
          var gameMangemntKey: GameMangemntKey = GameMangemntKey[gameObje as keyof typeof GameMangemntKey ];
         if(gameMangemntKey==GameMangemntKey.space)
         {
-            GameManagement.Puased = !GameManagement.Puased;
+            GameManagement.GamePuased();
         } 
     }
 

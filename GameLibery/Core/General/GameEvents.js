@@ -28,7 +28,7 @@
             }
             var gameMangemntKey = Enums_1.GameMangemntKey[gameObje];
             if (gameMangemntKey == Enums_1.GameMangemntKey.space) {
-                GameManagement_1.GameManagement.Puased = !GameManagement_1.GameManagement.Puased;
+                GameManagement_1.GameManagement.GamePuased();
             }
         };
         GameEvents.GetDirection = function (keyCode) {

@@ -36,6 +36,8 @@ import { ObjectAttribute } from "./General/Enums";
 import { StaticObject } from './Object/Static/Block/StaticObject';
 import { GameManagement } from './GameManagement';
 import { Music } from '../Utility/Music';
+import { EventHandler } from '../Utility/EventHandler';
+import { Menu } from '../Menu';
 
 export class GameCreation {
     public static GoalCount = GoalConfig.GoalCount;
@@ -101,6 +103,6 @@ export class GameCreation {
         ObjectFactory.CreateRandomSingleBlocks(45, 'block7',new CoconutPalmTreeOV(),ObjectAttribute.block)
         //------------------------Goals Creation----------------------------
         ObjectFactory.CreateRandomSingleBlocks(this.GoalCount, 'goal', new GoalOV(),ObjectAttribute.Goal)
-
+        Menu.OpenMainMenu();
     }
 }

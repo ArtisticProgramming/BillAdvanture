@@ -1,4 +1,5 @@
 ﻿import { GameManagement } from '../Core/GameManagement';
+import { Menu } from '../Menu';
 import GameEvents = require("../Core/General/GameEvents");
 
     export class EventHandler {
@@ -9,15 +10,15 @@ import GameEvents = require("../Core/General/GameEvents");
                 gameEv.ManageEvents(e.keyCode);
             });
         }
-        static RegisterPlayClick():void {
+        static  RegisterPlayClick():void {
         debugger;
         let btn = document.getElementById("play");
         $("body").on("click", ".play", (event) => this.startGame());
 
         }
         static startGame(){
-            //   alert("play");
-              GameManagement.GameStart();
-              
+            Menu.CloseMainMenu();  
+            GameManagement.GameStart();
+
         }
     }

@@ -13,7 +13,6 @@
     var Game = /** @class */ (function () {
         function Game() {
             EventHandlerNs.EventHandler.RegisterkeyDown();
-            EventHandlerNs.EventHandler.RegisterPlayClick();
             GameCreation_1.GameCreation.initialize();
         }
         return Game;
