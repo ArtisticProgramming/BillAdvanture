@@ -13,12 +13,33 @@ import GameEvents = require("../Core/General/GameEvents");
         static  RegisterPlayClick():void {
         debugger;
         let btn = document.getElementById("play");
-        $("body").on("click", ".play", (event) => this.startGame());
+        $("body").on("click", ".play", (event) => this.playStartGame());
 
         }
-        static startGame(){
-            Menu.CloseMainMenu();  
-            GameManagement.GameStart();
 
+        static  RegisterSettingClick():void {
+            debugger;
+            let btn = document.getElementById("setting");
+            $("body").on("click", ".setting", (event) => this.configSettingAndPlay());
+    
         }
+
+        static playStartGame(){
+           // if (GameManagement.GameIsStarted==true)
+           // {
+                Menu.CloseMainMenu();  
+                GameManagement.GameStart();
+           // }else{
+                Menu.CloseMainMenu();  
+               // Menu.OpenSettingMenu();
+            //}
+        }
+
+        static configSettingAndPlay(){
+                //config
+
+                Menu.CloseSettingMenu();  
+                GameManagement.GameStart();
+        }
+        
     }

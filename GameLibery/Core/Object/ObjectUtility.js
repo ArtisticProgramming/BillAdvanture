@@ -19,9 +19,12 @@
         ObjectUtility.AddObjectAttribute = function (position, attribute) {
             $("#" + position.toString()).attr(attribute, attribute);
         };
-        ObjectUtility.DeleteObject = function (position, attribute) {
+        ObjectUtility.DeleteObject = function (position, attribute, name) {
+            if (name === void 0) { name = ""; }
+            if (name == "")
+                name = attribute;
             $("#" + position.toString()).removeAttr(attribute);
-            $("#" + position.toString()).removeClass(attribute);
+            $("#" + position.toString()).removeClass(name);
         };
         return ObjectUtility;
     }());

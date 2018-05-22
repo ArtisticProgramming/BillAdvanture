@@ -56,7 +56,8 @@ var __extends = (this && this.__extends) || (function () {
         HumanPlayer.prototype.CheckForGoal = function (position) {
             var result = GameUtility_1.GameUtility.GetAttribute(position, Enums_1.ObjectAttribute.Goal);
             if (result !== undefined) {
-                GameManagement_1.GameManagement.ReduceGoal(position);
+                var className = GameUtility_1.GameUtility.GetFirstClasss(position);
+                GameManagement_1.GameManagement.ReduceGoal(position, className);
             }
         };
         HumanPlayer.prototype.CheckForkill = function (position) {

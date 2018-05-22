@@ -20,6 +20,13 @@
             var value = $("#" + position.toString()).attr(attr);
             return value;
         };
+        GameUtility.GetFirstClasss = function (position) {
+            var value = $("#" + position.toString()).attr('class');
+            if (value != null || value != undefined || value != "") {
+                value = value.split(" ")[0];
+            }
+            return value;
+        };
         return GameUtility;
     }());
     exports.GameUtility = GameUtility;

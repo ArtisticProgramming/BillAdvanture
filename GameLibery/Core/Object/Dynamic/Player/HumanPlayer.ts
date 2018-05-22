@@ -45,7 +45,8 @@ export class HumanPlayer extends BasePlayer {
         var result = GameUtility.GetAttribute(position,ObjectAttribute.Goal);
         if (result !== undefined)
         {
-            GameManagement.ReduceGoal(position)
+            var className = GameUtility.GetFirstClasss(position);
+            GameManagement.ReduceGoal(position,className)
         }
     }
 

@@ -5,9 +5,10 @@ import { Menu } from '../Menu';
 
 export class GameManagement {
    public static Puased = true;
-   static ReduceGoal(position:number)
+   public static GameIsStarted = false;
+   static ReduceGoal(position:number,name:string)
     {
-        ObjectUtility.DeleteObject(position, ObjectAttribute.Goal);
+        ObjectUtility.DeleteObject(position, ObjectAttribute.Goal,name);
         GameCreation.GoalCount = GameCreation.GoalCount-1;
         if (GameCreation.GoalCount == 0 )
         {
@@ -54,6 +55,7 @@ export class GameManagement {
     static GameStart()
     {
         this.Puased=false;
+        this.GameIsStarted=true
     }
 
 }

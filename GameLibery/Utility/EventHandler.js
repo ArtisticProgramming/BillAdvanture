@@ -26,10 +26,27 @@
             var _this = this;
             debugger;
             var btn = document.getElementById("play");
-            $("body").on("click", ".play", function (event) { return _this.startGame(); });
+            $("body").on("click", ".play", function (event) { return _this.playStartGame(); });
         };
-        EventHandler.startGame = function () {
+        EventHandler.RegisterSettingClick = function () {
+            var _this = this;
+            debugger;
+            var btn = document.getElementById("setting");
+            $("body").on("click", ".setting", function (event) { return _this.configSettingAndPlay(); });
+        };
+        EventHandler.playStartGame = function () {
+            // if (GameManagement.GameIsStarted==true)
+            // {
             Menu_1.Menu.CloseMainMenu();
+            GameManagement_1.GameManagement.GameStart();
+            // }else{
+            Menu_1.Menu.CloseMainMenu();
+            // Menu.OpenSettingMenu();
+            //}
+        };
+        EventHandler.configSettingAndPlay = function () {
+            //config
+            Menu_1.Menu.CloseSettingMenu();
             GameManagement_1.GameManagement.GameStart();
         };
         return EventHandler;

@@ -29,7 +29,7 @@
     var GoalConfig = /** @class */ (function () {
         function GoalConfig() {
         }
-        GoalConfig.GoalCount = 10;
+        GoalConfig.GoalCount = 12;
         return GoalConfig;
     }());
     exports.GoalConfig = GoalConfig;

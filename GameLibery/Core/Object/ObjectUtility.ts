@@ -15,9 +15,11 @@ export class ObjectUtility
         $("#"+position.toString()).attr(attribute,attribute);
     }
 
-    static DeleteObject(position:number,attribute:ObjectAttribute)
+    static DeleteObject(position:number,attribute:ObjectAttribute,name:string="")
     {
+        if(name=="")
+            name=attribute;
         $("#"+position.toString()).removeAttr(attribute);
-        $("#"+position.toString()).removeClass(attribute);
+        $("#"+position.toString()).removeClass(name);
     }
 }

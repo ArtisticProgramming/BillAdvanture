@@ -29,7 +29,17 @@ import {
     StoneOV,
     HoleOV,
     GrassOV,
-    GoalOV
+    GoalOV,
+    Goal2OV,
+    Goal3OV,
+    Goal12OV,
+    Goal11OV,
+    Goal10OV,
+    Goal9OV,
+    Goal8OV,
+    Goal7OV,
+    Goal6OV,
+    AndresOV
 } from '../Configuration/ObjectVisual';
 import { GoalConfig } from "../Configuration/GameConfig";
 import { ObjectAttribute } from "./General/Enums";
@@ -38,6 +48,7 @@ import { GameManagement } from './GameManagement';
 import { Music } from '../Utility/Music';
 import { EventHandler } from '../Utility/EventHandler';
 import { Menu } from '../Menu';
+import { Goal4OV, Goal5OV } from '../Configuration/ObjectVisual';
 
 export class GameCreation {
     public static GoalCount = GoalConfig.GoalCount;
@@ -55,44 +66,44 @@ export class GameCreation {
         humanplayer.Create();
         $("#1").addClass(humanplayer.name);
 
-        let machinPlayer: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 282);
-        machinPlayer.Create();
-       // this.MachinPlayers.push(machinPlayer);
-        $("#282").addClass(machinPlayer.name);
-        machinPlayer.MoveMachin();
+    //     let machinPlayer: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 282);
+    //     machinPlayer.Create();
+    //    // this.MachinPlayers.push(machinPlayer);
+    //     $("#282").addClass(machinPlayer.name);
+    //     machinPlayer.MoveMachin();
 
-        let machinPlayer2: MachinPlayer2 = new MachinPlayer2("linus", new LinusOV(), 292);
-        machinPlayer2.Create();
-        //this.MachinPlayers.push(machinPlayer2);
-        $("#292").addClass(machinPlayer2.name);
-        machinPlayer2.MoveMachin();
+    //     let machinPlayer2: MachinPlayer2 = new MachinPlayer2("linus", new LinusOV(), 292);
+    //     machinPlayer2.Create();
+    //     //this.MachinPlayers.push(machinPlayer2);
+    //     $("#292").addClass(machinPlayer2.name);
+    //     machinPlayer2.MoveMachin();
 
 
-        let machinPlayer3: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 20);
-        machinPlayer3.Create();
-       // this.MachinPlayers.push(machinPlayer);
-        $("#20").addClass(machinPlayer3.name);
-        machinPlayer3.MoveMachin();
+    //     let machinPlayer3: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 20);
+    //     machinPlayer3.Create();
+    //    // this.MachinPlayers.push(machinPlayer);
+    //     $("#20").addClass(machinPlayer3.name);
+    //     machinPlayer3.MoveMachin();
         
-        let machinPlayer4: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 40);
-        machinPlayer4.Create();
-       // this.MachinPlayers.push(machinPlayer);
-        $("#20").addClass(machinPlayer4.name);
-        machinPlayer4.MoveMachin();
-
-        
-        let machinPlayer5: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 30);
-        machinPlayer5.Create();
-       // this.MachinPlayers.push(machinPlayer);
-        $("#20").addClass(machinPlayer5.name);
-        machinPlayer5.MoveMachin();
+    //     let machinPlayer4: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 40);
+    //     machinPlayer4.Create();
+    //    // this.MachinPlayers.push(machinPlayer);
+    //     $("#20").addClass(machinPlayer4.name);
+    //     machinPlayer4.MoveMachin();
 
         
-        let machinPlayer6: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 80);
-        machinPlayer6.Create();
-       // this.MachinPlayers.push(machinPlayer);
-        $("#20").addClass(machinPlayer6.name);
-        machinPlayer6.MoveMachin();
+    //     let machinPlayer5: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 30);
+    //     machinPlayer5.Create();
+    //    // this.MachinPlayers.push(machinPlayer);
+    //     $("#20").addClass(machinPlayer5.name);
+    //     machinPlayer5.MoveMachin();
+
+        
+    //     let machinPlayer6: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 80);
+    //     machinPlayer6.Create();
+    //    // this.MachinPlayers.push(machinPlayer);
+    //     $("#20").addClass(machinPlayer6.name);
+    //     machinPlayer6.MoveMachin();
 
         ObjectFactory.CreateRandomSingleBlocks(35, 'block', new FireOV(),ObjectAttribute.kill)
         ObjectFactory.CreateRandomSingleBlocks(25, 'block2', new StoneOV(),ObjectAttribute.block)
@@ -102,7 +113,18 @@ export class GameCreation {
         ObjectFactory.CreateRandomSingleBlocks(50, 'block6', new PalmTreeOV(),ObjectAttribute.block)
         ObjectFactory.CreateRandomSingleBlocks(45, 'block7',new CoconutPalmTreeOV(),ObjectAttribute.block)
         //------------------------Goals Creation----------------------------
-        ObjectFactory.CreateRandomSingleBlocks(this.GoalCount, 'goal', new GoalOV(),ObjectAttribute.Goal)
+        ObjectFactory.CreateRandomSingleBlocks(1, 'goal', new GoalOV(),ObjectAttribute.Goal)
+        ObjectFactory.CreateRandomSingleBlocks(1, 'goal2', new Goal2OV(),ObjectAttribute.Goal)
+        ObjectFactory.CreateRandomSingleBlocks(1, 'goal3', new Goal3OV(),ObjectAttribute.Goal)
+        ObjectFactory.CreateRandomSingleBlocks(1, 'goal4', new Goal4OV(),ObjectAttribute.Goal)
+        ObjectFactory.CreateRandomSingleBlocks(1, 'goal5', new Goal5OV(),ObjectAttribute.Goal)
+        ObjectFactory.CreateRandomSingleBlocks(1, 'goal6', new Goal6OV(),ObjectAttribute.Goal)
+        ObjectFactory.CreateRandomSingleBlocks(1, 'goal7', new Goal7OV(),ObjectAttribute.Goal)
+        ObjectFactory.CreateRandomSingleBlocks(1, 'goal8', new Goal8OV(),ObjectAttribute.Goal)
+        ObjectFactory.CreateRandomSingleBlocks(1, 'goal9', new Goal9OV(),ObjectAttribute.Goal)
+        ObjectFactory.CreateRandomSingleBlocks(1, 'goal10', new Goal10OV(),ObjectAttribute.Goal)
+        ObjectFactory.CreateRandomSingleBlocks(1, 'goal11', new Goal11OV(),ObjectAttribute.Goal)
+        ObjectFactory.CreateRandomSingleBlocks(1, 'goal12', new Goal12OV(),ObjectAttribute.Goal)
         Menu.OpenMainMenu();
     }
 }

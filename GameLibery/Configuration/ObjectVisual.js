@@ -59,6 +59,25 @@ var __extends = (this && this.__extends) || (function () {
         return BillGatesOV;
     }(ObjectOV));
     exports.BillGatesOV = BillGatesOV;
+    var AndresOV = /** @class */ (function (_super) {
+        __extends(AndresOV, _super);
+        function AndresOV() {
+            var _this = _super.call(this) || this;
+            _this.photo = "anders.png";
+            _this.backgroundSize = 56;
+            return _this;
+        }
+        AndresOV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return AndresOV;
+    }(ObjectOV));
+    exports.AndresOV = AndresOV;
     // --------------------------------------------------------------------------------------------------
     var SteveJobsOV = /** @class */ (function (_super) {
         __extends(SteveJobsOV, _super);
@@ -241,14 +260,15 @@ var __extends = (this && this.__extends) || (function () {
         return GrassOV;
     }(ObjectOV));
     exports.GrassOV = GrassOV;
-    // --------------------------------------------------------------------------------------------------
+    // ----------------------------------------------GOAL----------------------------------------------------
     var GoalOV = /** @class */ (function (_super) {
         __extends(GoalOV, _super);
         function GoalOV() {
             var _this = _super.call(this) || this;
-            _this.photo = 'windows.png';
-            _this.backgroundPosition = "bottom";
+            _this.photo = 'MicrosoftIcons.png';
+            _this.backgroundPosition = "-7px -12px";
             _this.ObjectType = Enums_1.ObjectAttribute.Goal;
+            _this.backgroundSize = 480;
             return _this;
         }
         GoalOV.prototype.getProperteyList = function () {
@@ -262,5 +282,247 @@ var __extends = (this && this.__extends) || (function () {
         return GoalOV;
     }(ObjectOV));
     exports.GoalOV = GoalOV;
+    // ----------------------------------------------GOAL2----------------------------------------------------
+    var Goal2OV = /** @class */ (function (_super) {
+        __extends(Goal2OV, _super);
+        function Goal2OV() {
+            var _this = _super.call(this) || this;
+            _this.photo = 'MicrosoftIcons.png';
+            _this.backgroundPosition = "-9px -98px";
+            _this.ObjectType = Enums_1.ObjectAttribute.Goal;
+            _this.backgroundSize = 480;
+            return _this;
+        }
+        Goal2OV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return Goal2OV;
+    }(ObjectOV));
+    exports.Goal2OV = Goal2OV;
+    // ----------------------------------------------GOAL3----------------------------------------------------
+    var Goal3OV = /** @class */ (function (_super) {
+        __extends(Goal3OV, _super);
+        function Goal3OV() {
+            var _this = _super.call(this) || this;
+            _this.photo = 'MicrosoftIcons.png';
+            _this.backgroundPosition = "-8px -175px";
+            _this.ObjectType = Enums_1.ObjectAttribute.Goal;
+            _this.backgroundSize = 480;
+            return _this;
+        }
+        Goal3OV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return Goal3OV;
+    }(ObjectOV));
+    exports.Goal3OV = Goal3OV;
+    // ----------------------------------------------GOAL4----------------------------------------------------
+    var Goal4OV = /** @class */ (function (_super) {
+        __extends(Goal4OV, _super);
+        function Goal4OV() {
+            var _this = _super.call(this) || this;
+            _this.photo = 'MicrosoftIcons.png';
+            _this.backgroundPosition = "-230px -10px";
+            _this.ObjectType = Enums_1.ObjectAttribute.Goal;
+            _this.backgroundSize = 480;
+            return _this;
+        }
+        Goal4OV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return Goal4OV;
+    }(ObjectOV));
+    exports.Goal4OV = Goal4OV;
+    // ----------------------------------------------GOAL5----------------------------------------------------
+    var Goal5OV = /** @class */ (function (_super) {
+        __extends(Goal5OV, _super);
+        function Goal5OV() {
+            var _this = _super.call(this) || this;
+            _this.photo = 'MicrosoftIcons.png';
+            _this.backgroundPosition = "-360px -128px";
+            _this.ObjectType = Enums_1.ObjectAttribute.Goal;
+            _this.backgroundSize = 563;
+            return _this;
+        }
+        Goal5OV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return Goal5OV;
+    }(ObjectOV));
+    exports.Goal5OV = Goal5OV;
+    // ----------------------------------------------GOAL6----------------------------------------------------
+    var Goal6OV = /** @class */ (function (_super) {
+        __extends(Goal6OV, _super);
+        function Goal6OV() {
+            var _this = _super.call(this) || this;
+            _this.photo = 'MicrosoftIcons.png';
+            _this.backgroundPosition = "-220px -175px";
+            _this.ObjectType = Enums_1.ObjectAttribute.Goal;
+            _this.backgroundSize = 480;
+            return _this;
+        }
+        Goal6OV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return Goal6OV;
+    }(ObjectOV));
+    exports.Goal6OV = Goal6OV;
+    // ----------------------------------------------GOAL7----------------------------------------------------
+    var Goal7OV = /** @class */ (function (_super) {
+        __extends(Goal7OV, _super);
+        function Goal7OV() {
+            var _this = _super.call(this) || this;
+            _this.photo = 'MicrosoftIcons.png';
+            _this.backgroundPosition = "-301px -253px";
+            _this.ObjectType = Enums_1.ObjectAttribute.Goal;
+            _this.backgroundSize = 480;
+            return _this;
+        }
+        Goal7OV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return Goal7OV;
+    }(ObjectOV));
+    exports.Goal7OV = Goal7OV;
+    // ----------------------------------------------GOAL8----------------------------------------------------
+    var Goal8OV = /** @class */ (function (_super) {
+        __extends(Goal8OV, _super);
+        function Goal8OV() {
+            var _this = _super.call(this) || this;
+            _this.photo = 'MicrosoftIcons.png';
+            _this.backgroundPosition = "-153px -96px";
+            _this.ObjectType = Enums_1.ObjectAttribute.Goal;
+            _this.backgroundSize = 480;
+            return _this;
+        }
+        Goal8OV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return Goal8OV;
+    }(ObjectOV));
+    exports.Goal8OV = Goal8OV;
+    // ----------------------------------------------GOAL9----------------------------------------------------
+    var Goal9OV = /** @class */ (function (_super) {
+        __extends(Goal9OV, _super);
+        function Goal9OV() {
+            var _this = _super.call(this) || this;
+            _this.photo = 'MicrosoftIcons.png';
+            _this.backgroundPosition = "-258px -119px";
+            _this.ObjectType = Enums_1.ObjectAttribute.Goal;
+            _this.backgroundSize = 527;
+            return _this;
+        }
+        Goal9OV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return Goal9OV;
+    }(ObjectOV));
+    exports.Goal9OV = Goal9OV;
+    // ----------------------------------------------GOAL10----------------------------------------------------
+    var Goal10OV = /** @class */ (function (_super) {
+        __extends(Goal10OV, _super);
+        function Goal10OV() {
+            var _this = _super.call(this) || this;
+            _this.photo = 'MicrosoftIcons.png';
+            _this.backgroundPosition = "-94px -208px";
+            _this.ObjectType = Enums_1.ObjectAttribute.Goal;
+            _this.backgroundSize = 548;
+            return _this;
+        }
+        Goal10OV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return Goal10OV;
+    }(ObjectOV));
+    exports.Goal10OV = Goal10OV;
+    // ----------------------------------------------GOAL11----------------------------------------------------
+    var Goal11OV = /** @class */ (function (_super) {
+        __extends(Goal11OV, _super);
+        function Goal11OV() {
+            var _this = _super.call(this) || this;
+            _this.photo = 'MicrosoftIcons.png';
+            _this.backgroundPosition = "-178px -209px";
+            _this.ObjectType = Enums_1.ObjectAttribute.Goal;
+            _this.backgroundSize = 542;
+            return _this;
+        }
+        Goal11OV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return Goal11OV;
+    }(ObjectOV));
+    exports.Goal11OV = Goal11OV;
+    // ----------------------------------------------GOAL12----------------------------------------------------
+    var Goal12OV = /** @class */ (function (_super) {
+        __extends(Goal12OV, _super);
+        function Goal12OV() {
+            var _this = _super.call(this) || this;
+            _this.photo = 'MicrosoftIcons.png';
+            _this.backgroundPosition = "-347px -209px";
+            _this.ObjectType = Enums_1.ObjectAttribute.Goal;
+            _this.backgroundSize = 544;
+            return _this;
+        }
+        Goal12OV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return Goal12OV;
+    }(ObjectOV));
+    exports.Goal12OV = Goal12OV;
 });
 //# sourceMappingURL=ObjectVisual.js.map

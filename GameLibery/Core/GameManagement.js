@@ -16,8 +16,8 @@
     var GameManagement = /** @class */ (function () {
         function GameManagement() {
         }
-        GameManagement.ReduceGoal = function (position) {
-            ObjectUtility_1.ObjectUtility.DeleteObject(position, Enums_1.ObjectAttribute.Goal);
+        GameManagement.ReduceGoal = function (position, name) {
+            ObjectUtility_1.ObjectUtility.DeleteObject(position, Enums_1.ObjectAttribute.Goal, name);
             GameCreation_1.GameCreation.GoalCount = GameCreation_1.GameCreation.GoalCount - 1;
             if (GameCreation_1.GameCreation.GoalCount == 0) {
                 this.PlayerWin();
@@ -52,8 +52,10 @@
         };
         GameManagement.GameStart = function () {
             this.Puased = false;
+            this.GameIsStarted = true;
         };
         GameManagement.Puased = true;
+        GameManagement.GameIsStarted = false;
         return GameManagement;
     }());
     exports.GameManagement = GameManagement;
