@@ -66,45 +66,33 @@ export class GameCreation {
         humanplayer.Create();
         $("#1").addClass(humanplayer.name);
 
-    //     let machinPlayer: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 282);
-    //     machinPlayer.Create();
-    //    // this.MachinPlayers.push(machinPlayer);
-    //     $("#282").addClass(machinPlayer.name);
-    //     machinPlayer.MoveMachin();
+        let machinPlayer: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 282);
+        machinPlayer.Create();
+       // this.MachinPlayers.push(machinPlayer);
+        $("#282").addClass(machinPlayer.name);
+        machinPlayer.MoveMachin();
 
-    //     let machinPlayer2: MachinPlayer2 = new MachinPlayer2("linus", new LinusOV(), 292);
-    //     machinPlayer2.Create();
-    //     //this.MachinPlayers.push(machinPlayer2);
-    //     $("#292").addClass(machinPlayer2.name);
-    //     machinPlayer2.MoveMachin();
+        let machinPlayer2: MachinPlayer2 = new MachinPlayer2("linus", new LinusOV(), 292);
+        machinPlayer2.Create();
+        //this.MachinPlayers.push(machinPlayer2);
+        $("#292").addClass(machinPlayer2.name);
+        machinPlayer2.MoveMachin();
 
 
-    //     let machinPlayer3: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 20);
-    //     machinPlayer3.Create();
-    //    // this.MachinPlayers.push(machinPlayer);
-    //     $("#20").addClass(machinPlayer3.name);
-    //     machinPlayer3.MoveMachin();
+        let machinPlayer3: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 20);
+        machinPlayer3.Create();
+       // this.MachinPlayers.push(machinPlayer);
+        $("#20").addClass(machinPlayer3.name);
+        machinPlayer3.MoveMachin();
         
-    //     let machinPlayer4: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 40);
-    //     machinPlayer4.Create();
-    //    // this.MachinPlayers.push(machinPlayer);
-    //     $("#20").addClass(machinPlayer4.name);
-    //     machinPlayer4.MoveMachin();
-
-        
-    //     let machinPlayer5: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 30);
-    //     machinPlayer5.Create();
-    //    // this.MachinPlayers.push(machinPlayer);
-    //     $("#20").addClass(machinPlayer5.name);
-    //     machinPlayer5.MoveMachin();
+        let machinPlayer4: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 40);
+        machinPlayer4.Create();
+       // this.MachinPlayers.push(machinPlayer);
+        $("#20").addClass(machinPlayer4.name);
+        machinPlayer4.MoveMachin();
 
         
-    //     let machinPlayer6: MachinPlayer = new MachinPlayer("stevejobs", new SteveJobsOV(), 80);
-    //     machinPlayer6.Create();
-    //    // this.MachinPlayers.push(machinPlayer);
-    //     $("#20").addClass(machinPlayer6.name);
-    //     machinPlayer6.MoveMachin();
-
+    
         ObjectFactory.CreateRandomSingleBlocks(35, 'block', new FireOV(),ObjectAttribute.kill)
         ObjectFactory.CreateRandomSingleBlocks(25, 'block2', new StoneOV(),ObjectAttribute.block)
         ObjectFactory.CreateRandomSingleBlocks(30, 'block3', new HoleOV(),ObjectAttribute.kill)
