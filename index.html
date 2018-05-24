@@ -9,50 +9,50 @@
 
     <script src="require.js" data-main="main.js"></script>
     <script>
-          loadAudio=  function () {
+        loadAudio = function () {
             var button = document.getElementById('button');
             var audio = document.getElementById('audio');
 
-                    var onClick = function () {
-                        alert("");
-                        audio.play(); // audio will load and then play
-                    };
-         
-            }
+            var onClick = function () {
+                alert("");
+                audio.play(); // audio will load and then play
+            };
+
+        }
         $(document).ready(function () {
-           
-            var zoomlevel=1;
-             var aboutModal;
-             aboutModal = new jBox('Modal', {
-                // title: 'Hello!',
-                    content: $("#about").html(),
-                    // draggable: 'title',
-                    theme: 'ModalBorder',
-                });
 
-                 var sourceCodeModal;
-                 sourceCodeModal = new jBox('Modal', {
+            var zoomlevel = 1;
+            var aboutModal;
+            aboutModal = new jBox('Modal', {
                 // title: 'Hello!',
-                    content: $("#sourcecode").html(),
-                    // draggable: 'title',
-                    theme: 'ModalBorder',
-                });
+                content: $("#about").html(),
+                // draggable: 'title',
+                theme: 'ModalBorder',
+            });
 
-            $("body").on("click",".about",function(){
+            var sourceCodeModal;
+            sourceCodeModal = new jBox('Modal', {
+                // title: 'Hello!',
+                content: $("#sourcecode").html(),
+                // draggable: 'title',
+                theme: 'ModalBorder',
+            });
+
+            $("body").on("click", ".about", function () {
                 aboutModal.open();
             })
 
-            $("body").on("click",".sourcecode",function(){
+            $("body").on("click", ".sourcecode", function () {
                 sourceCodeModal.open();
             })
 
-            $('body').on("click",".zoomin",function(){
-                zoomlevel=zoomlevel+0.1;
-                document.body.style.zoom=zoomlevel;
+            $('body').on("click", ".zoomin", function () {
+                zoomlevel = zoomlevel + 0.1;
+                document.body.style.zoom = zoomlevel;
             })
-            $('body').on("click",".zoomout",function(){
-                zoomlevel=zoomlevel-0.1;
-                document.body.style.zoom=zoomlevel;
+            $('body').on("click", ".zoomout", function () {
+                zoomlevel = zoomlevel - 0.1;
+                document.body.style.zoom = zoomlevel;
             })
 
             loadAudio();
@@ -79,8 +79,8 @@
     <img src="image/MicrosoftIcons.png" alt="Book" id="book" style="display: none">
     <img src="image/billwin.gif" alt="Book" id="book" style="display: none">
     <img src="image/gameover2.jpg" alt="Book" id="book" style="display: none">
-    
-    
+
+
     <div id="GameStruct">
         <div id="camera" class='camera'>
             <table id="GamePalne" border="1"></table>
@@ -93,39 +93,95 @@
 </body>
 
 <div id="gameStart" style="display: none">
-        <img src="image/wellcome.png"  >
-        <br/>
-        <h2 style="text-align: center" >Bill Gates In the Jungle</h3>
-        <a  href="#" class="myButton2 play">Play</a>
-        <a  href="#" class="myButton4 setting">Setting</a>
-        <a  href="#" class="myButton3 sourcecode">Source Code</a>
-        <a  href="#" class="myButton about">About</a>
+    <img src="image/wellcome.png">
+    <br/>
+    <h2 style="text-align: center">Bill Gates In the Jungle</h3>
+        <a href="#" class="myButton2 play">Play</a>
+        <a href="#" class="myButton4 setting">Setting</a>
+        <a href="#" class="myButton3 sourcecode">Source Code</a>
+        <a href="#" class="myButton about">About</a>
         <a id='zoomin' href="#" class="myButton zoomin">+</a>
-        <a  id='zoomout' href="#" class="myButton zoomout">-</a>
+        <a id='zoomout' href="#" class="myButton zoomout">-</a>
         <!-- <a  href="#" class="myButton3 exit">Exit</a> -->
 </div>
 
 
 <div id="setting" style="display: none">
-    <p>hello</p>
+    <table id="settingtbl"> 
+        <tr>
+            <td>
+                <img src="image/billgates2.png" style="width: 120px;">
+            </td>
+            <td>
+                <img src="image/SatyaNadella.png" style="width: 120px;">
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center">
+                <label class="container"> Bill Gates
+                    <input type="radio" checked="checked" name="char">
+                    <span class="checkmark"></span>
+                </label>
+            </td>
+            <td style="text-align: center">
+                <label class="container">Satya Nadella
+                    <input type="radio" name="char">
+                    <span class="checkmark"></span>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="container">Easy
+                    <input type="radio" checked="checked" name="Degree">
+                    <span class="checkmark"></span>
+                </label>
+            </td>
+            <td>
+                <label class="container">Normal
+                    <input type="radio" name="Degree">
+                    <span class="checkmark"></span>
+                </label>
+            </td>
+            <tr>
+                <td>
+                    <label class="container">Hard
+                        <input type="radio" name="Degree">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+                <td>
+                    <label class="container">Very hard
+                        <input type="radio" name="Degree">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+            </tr>
+            <tr >
+                    <td colspan="2" style="padding: 1px;">
+                            <a href="#" style="    padding: 10px 110px;margin: 10px 0px;" class="myButton2 ">Play</a>
+                    </td>
+            </tr>
+        </tr>
+    </table>
 </div>
 
 
 <div id="about" style="display: none">
-     <h2>Creator: Mostafa Jafari</h2>
-     <h2>Contact Email: skysystem2017@gmail.com</h2>
+    <h2>Creator: Mostafa Jafari</h2>
+    <h2>Contact Email: skysystem2017@gmail.com</h2>
 </div>
 
 <div id="sourcecode" style="display: none">
-<h2>Source Code On Github: </h3>
-    <a class="myButton"  href="https://github.com/ArtisticProgramming/BillAdvanture/" target="_blank">https://github.com/ArtisticProgramming/BillAdvanture/</a>
+    <h2>Source Code On Github: </h3>
+        <a class="myButton" href="https://github.com/ArtisticProgramming/BillAdvanture/" target="_blank">https://github.com/ArtisticProgramming/BillAdvanture/</a>
 </div>
 
 <div id="gameover" style="display: none">
     <img src='image/gameover2.jpg'>
-    </div>
+</div>
 
-    <div id="win" style="display: none">
-        <img src='image/billwin.gif'>    
-        <h1 style="color: green;text-align: center;">YOU WIN!</h1>  
-    </div>
+<div id="win" style="display: none">
+    <img src='image/billwin.gif'>
+    <h1 style="color: green;text-align: center;">YOU WIN!</h1>
+</div>

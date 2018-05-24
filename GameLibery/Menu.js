@@ -27,8 +27,7 @@
             this.playModal.close();
         };
         Menu.OpenSettingMenu = function () {
-            var settingModal;
-            settingModal = new jBox('Modal', {
+            this.settingModal = new jBox('Modal', {
                 content: $("#setting").html(),
                 title: "Setting",
                 draggable: 'title',
@@ -36,6 +35,7 @@
                 closeOnEsc: true,
                 theme: 'ModalBorder',
             });
+            this.settingModal.open();
         };
         Menu.CloseSettingMenu = function () {
             this.settingModal.close();

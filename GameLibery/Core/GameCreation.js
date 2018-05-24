@@ -26,7 +26,7 @@
         }
         GameCreation.initialize = function () {
             GamePlan_1.GamePlan.getInstance().CreateChessboardPlan();
-            var humanplayer = new HumanPlayer_1.HumanPlayer("bill", new ObjectVisual_1.BillGatesOV());
+            var humanplayer = new HumanPlayer_1.HumanPlayer("bill", new ObjectVisual_1.SatyaNadella());
             this.HumanPlayer = humanplayer;
             humanplayer.Create();
             $("#1").addClass(humanplayer.name);

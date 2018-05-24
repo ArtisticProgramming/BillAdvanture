@@ -52,6 +52,23 @@ export class AndresOV extends ObjectOV {
     }
 }
 
+export class SatyaNadella extends ObjectOV {
+    constructor() {
+        super();
+        this.photo="SatyaNadella.png";
+        this.backgroundSize = 50; 
+    }
+    getProperteyList(): Array < KeyValuePair > {
+        let properteyList: Array < KeyValuePair > = new Array < KeyValuePair > ();
+        properteyList.push(new KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+        properteyList.push(new KeyValuePair("background-repeat", this.backgroundRepeat));
+        properteyList.push(new KeyValuePair("background-position", this.backgroundPosition));
+        properteyList.push(new KeyValuePair("background-size", this.backgroundSize + "px"));
+        return properteyList
+    }
+}
+
+
 // --------------------------------------------------------------------------------------------------
 export class SteveJobsOV extends ObjectOV {
     constructor() {

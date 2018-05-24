@@ -35,14 +35,14 @@
             $("body").on("click", ".setting", function (event) { return _this.configSettingAndPlay(); });
         };
         EventHandler.playStartGame = function () {
-            // if (GameManagement.GameIsStarted==true)
-            // {
-            Menu_1.Menu.CloseMainMenu();
-            GameManagement_1.GameManagement.GameStart();
-            // }else{
-            Menu_1.Menu.CloseMainMenu();
-            // Menu.OpenSettingMenu();
-            //}
+            if (GameManagement_1.GameManagement.GameIsStarted == true) {
+                Menu_1.Menu.CloseMainMenu();
+                GameManagement_1.GameManagement.GameStart();
+            }
+            else {
+                Menu_1.Menu.CloseMainMenu();
+                Menu_1.Menu.OpenSettingMenu();
+            }
         };
         EventHandler.configSettingAndPlay = function () {
             //config

@@ -25,14 +25,14 @@ import GameEvents = require("../Core/General/GameEvents");
         }
 
         static playStartGame(){
-           // if (GameManagement.GameIsStarted==true)
-           // {
+           if (GameManagement.GameIsStarted==true)
+           {
                 Menu.CloseMainMenu();  
                 GameManagement.GameStart();
-           // }else{
+           }else{
                 Menu.CloseMainMenu();  
-               // Menu.OpenSettingMenu();
-            //}
+               Menu.OpenSettingMenu();
+            }
         }
 
         static configSettingAndPlay(){

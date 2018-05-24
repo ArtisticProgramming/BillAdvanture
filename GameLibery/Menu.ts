@@ -27,8 +27,7 @@ export class Menu {
 
     static OpenSettingMenu():void
     {
-        var settingModal;
-            settingModal = new jBox('Modal', {
+            this.settingModal = new jBox('Modal', {
                 content: $("#setting").html(),
                 title:"Setting",
                 draggable: 'title',
@@ -36,6 +35,9 @@ export class Menu {
                 closeOnEsc:true,
                 theme: 'ModalBorder',
               });
+              
+        this.settingModal.open();
+              
     }
 
     static CloseSettingMenu():void

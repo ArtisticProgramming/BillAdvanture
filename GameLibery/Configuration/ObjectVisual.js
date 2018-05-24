@@ -78,6 +78,25 @@ var __extends = (this && this.__extends) || (function () {
         return AndresOV;
     }(ObjectOV));
     exports.AndresOV = AndresOV;
+    var SatyaNadella = /** @class */ (function (_super) {
+        __extends(SatyaNadella, _super);
+        function SatyaNadella() {
+            var _this = _super.call(this) || this;
+            _this.photo = "SatyaNadella.png";
+            _this.backgroundSize = 50;
+            return _this;
+        }
+        SatyaNadella.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return SatyaNadella;
+    }(ObjectOV));
+    exports.SatyaNadella = SatyaNadella;
     // --------------------------------------------------------------------------------------------------
     var SteveJobsOV = /** @class */ (function (_super) {
         __extends(SteveJobsOV, _super);

@@ -39,7 +39,8 @@ import {
     Goal8OV,
     Goal7OV,
     Goal6OV,
-    AndresOV
+    AndresOV,
+    SatyaNadella
 } from '../Configuration/ObjectVisual';
 import { GoalConfig } from "../Configuration/GameConfig";
 import { ObjectAttribute } from "./General/Enums";
@@ -61,7 +62,7 @@ export class GameCreation {
 
     static initialize(): void {
         GamePlan.getInstance().CreateChessboardPlan();
-        let humanplayer: HumanPlayer = new HumanPlayer("bill", new BillGatesOV());
+        let humanplayer: HumanPlayer = new HumanPlayer("bill", new SatyaNadella());
         this.HumanPlayer = humanplayer;
         humanplayer.Create();
         $("#1").addClass(humanplayer.name);
