@@ -27,11 +27,13 @@ var __extends = (this && this.__extends) || (function () {
     var MachinMovement_1 = require("../../../Action/Movement/MachinMovement");
     var MachinPlayer2 = /** @class */ (function (_super) {
         __extends(MachinPlayer2, _super);
-        function MachinPlayer2(name, objectVisual, postionId) {
+        function MachinPlayer2(name, objectVisual, postionId, speed) {
+            if (speed === void 0) { speed = GameConfig_1.MachinPlayer2Config.speed; }
             var _this = _super.call(this, name, objectVisual, new MachinMovement_1.MachinMovement(name)) || this;
-            _this.speed = GameConfig_1.MachinPlayer2Config.speed;
+            _this.speed = 0;
             _this.blocked = false;
             _this._playerMovement.currentPosition = postionId;
+            _this.speed = speed;
             return _this;
         }
         MachinPlayer2.prototype.Create = function () {

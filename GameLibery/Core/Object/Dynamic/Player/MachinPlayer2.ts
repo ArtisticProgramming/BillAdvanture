@@ -32,13 +32,13 @@ import { GameManagement } from "../../../GameManagement";
 
 export class MachinPlayer2 extends BasePlayer {
 
-    speed: number = MachinPlayer2Config.speed;
+    speed: number = 0;
     blocked = false;
 
-    constructor(name: string, objectVisual: ObjectOV, postionId: number) {
+    constructor(name: string, objectVisual: ObjectOV, postionId: number,speed:number =MachinPlayer2Config.speed) {
         super(name, objectVisual, new MachinMovement(name));
         this._playerMovement.currentPosition = postionId;
-
+        this.speed=speed;
     }
 
     Create(): void {

@@ -56,6 +56,7 @@ export class SatyaNadella extends ObjectOV {
     constructor() {
         super();
         this.photo="SatyaNadella.png";
+        
         this.backgroundSize = 50; 
     }
     getProperteyList(): Array < KeyValuePair > {
@@ -90,7 +91,7 @@ export class LinusOV extends ObjectOV {
     constructor() {
         super();
         this.photo="linus.png";
-        this.backgroundSize = 47;
+
     }
     getProperteyList(): Array < KeyValuePair > {
         let properteyList: Array < KeyValuePair > = new Array < KeyValuePair > ();
@@ -101,6 +102,60 @@ export class LinusOV extends ObjectOV {
         return properteyList
     }
 }
+// --------------------------------------------------------------------------------------------------
+export class TimCook extends ObjectOV {
+    constructor() {
+        super();
+        this.photo="timcook.png";
+        this.backgroundSize = 54;
+
+    }
+    getProperteyList(): Array < KeyValuePair > {
+        let properteyList: Array < KeyValuePair > = new Array < KeyValuePair > ();
+        properteyList.push(new KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+        properteyList.push(new KeyValuePair("background-repeat", this.backgroundRepeat));
+        properteyList.push(new KeyValuePair("background-position", this.backgroundPosition));
+        properteyList.push(new KeyValuePair("background-size", this.backgroundSize + "px"));
+        return properteyList
+    }
+}
+
+// --------------------------------------------------------------------------------------------------
+export class zuckerbergOV extends ObjectOV {
+    constructor() {
+        super();
+        this.photo="zac.png";
+        this.backgroundSize = 92;
+        this.backgroundPosition="-23px -9px";
+    }
+    getProperteyList(): Array < KeyValuePair > {
+        let properteyList: Array < KeyValuePair > = new Array < KeyValuePair > ();
+        properteyList.push(new KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+        properteyList.push(new KeyValuePair("background-repeat", this.backgroundRepeat));
+        properteyList.push(new KeyValuePair("background-position", this.backgroundPosition));
+        properteyList.push(new KeyValuePair("background-size", this.backgroundSize + "px"));
+        return properteyList
+    }
+}
+// --------------------------------------------------------------------------------------------------
+export class sundarPichaiOV extends ObjectOV {
+    constructor() {
+        super();
+        this.photo="sundarpichai.png";
+        this.backgroundSize = 50;
+
+    }
+    getProperteyList(): Array < KeyValuePair > {
+        let properteyList: Array < KeyValuePair > = new Array < KeyValuePair > ();
+        properteyList.push(new KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+        properteyList.push(new KeyValuePair("background-repeat", this.backgroundRepeat));
+        properteyList.push(new KeyValuePair("background-position", this.backgroundPosition));
+        properteyList.push(new KeyValuePair("background-size", this.backgroundSize + "px"));
+        return properteyList
+    }
+}
+
+
 // --------------------------------------------------------------------------------------------------
 export class PineTreeOV extends ObjectOV {
     constructor() {

@@ -123,7 +123,6 @@ var __extends = (this && this.__extends) || (function () {
         function LinusOV() {
             var _this = _super.call(this) || this;
             _this.photo = "linus.png";
-            _this.backgroundSize = 47;
             return _this;
         }
         LinusOV.prototype.getProperteyList = function () {
@@ -137,6 +136,67 @@ var __extends = (this && this.__extends) || (function () {
         return LinusOV;
     }(ObjectOV));
     exports.LinusOV = LinusOV;
+    // --------------------------------------------------------------------------------------------------
+    var TimCook = /** @class */ (function (_super) {
+        __extends(TimCook, _super);
+        function TimCook() {
+            var _this = _super.call(this) || this;
+            _this.photo = "timcook.png";
+            _this.backgroundSize = 54;
+            return _this;
+        }
+        TimCook.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return TimCook;
+    }(ObjectOV));
+    exports.TimCook = TimCook;
+    // --------------------------------------------------------------------------------------------------
+    var zuckerbergOV = /** @class */ (function (_super) {
+        __extends(zuckerbergOV, _super);
+        function zuckerbergOV() {
+            var _this = _super.call(this) || this;
+            _this.photo = "zac.png";
+            _this.backgroundSize = 92;
+            _this.backgroundPosition = "-23px -9px";
+            return _this;
+        }
+        zuckerbergOV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return zuckerbergOV;
+    }(ObjectOV));
+    exports.zuckerbergOV = zuckerbergOV;
+    // --------------------------------------------------------------------------------------------------
+    var sundarPichaiOV = /** @class */ (function (_super) {
+        __extends(sundarPichaiOV, _super);
+        function sundarPichaiOV() {
+            var _this = _super.call(this) || this;
+            _this.photo = "sundarpichai.png";
+            _this.backgroundSize = 50;
+            return _this;
+        }
+        sundarPichaiOV.prototype.getProperteyList = function () {
+            var properteyList = new Array();
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-image", this.GetPhotoPath(this.photo)));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-repeat", this.backgroundRepeat));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-position", this.backgroundPosition));
+            properteyList.push(new KeyValuePair_1.KeyValuePair("background-size", this.backgroundSize + "px"));
+            return properteyList;
+        };
+        return sundarPichaiOV;
+    }(ObjectOV));
+    exports.sundarPichaiOV = sundarPichaiOV;
     // --------------------------------------------------------------------------------------------------
     var PineTreeOV = /** @class */ (function (_super) {
         __extends(PineTreeOV, _super);

@@ -17,7 +17,7 @@ export class Menu {
                 closeButton:false,
             });
             this.playModal.open();
-        EventHandler.RegisterPlayClick();
+
     }
 
     static CloseMainMenu():void

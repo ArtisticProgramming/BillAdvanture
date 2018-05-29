@@ -4,12 +4,11 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./Utility/EventHandler"], factory);
+        define(["require", "exports"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var EventHandler_1 = require("./Utility/EventHandler");
     var Menu = /** @class */ (function () {
         function Menu() {
         }
@@ -21,7 +20,6 @@
                 closeButton: false,
             });
             this.playModal.open();
-            EventHandler_1.EventHandler.RegisterPlayClick();
         };
         Menu.CloseMainMenu = function () {
             this.playModal.close();

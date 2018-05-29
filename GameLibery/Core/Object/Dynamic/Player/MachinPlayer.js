@@ -28,11 +28,13 @@ var __extends = (this && this.__extends) || (function () {
     var ObjectUtility_1 = require("../../ObjectUtility");
     var MachinPlayer = /** @class */ (function (_super) {
         __extends(MachinPlayer, _super);
-        function MachinPlayer(name, objectVisual, postionId) {
+        function MachinPlayer(name, objectVisual, postionId, speed) {
+            if (speed === void 0) { speed = GameConfig_1.MachinPlayerConfig.speed; }
             var _this = _super.call(this, name, objectVisual, new MachinMovement_1.MachinMovement(name)) || this;
-            _this.speed = GameConfig_1.MachinPlayerConfig.speed;
+            _this.speed = 0;
             _this.blocked = false;
             _this._playerMovement.currentPosition = postionId;
+            _this.speed = speed;
             return _this;
         }
         MachinPlayer.prototype.Create = function () {

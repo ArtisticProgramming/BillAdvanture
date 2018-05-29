@@ -20,9 +20,9 @@ export class CameraConfig {
 }
 
 export class MachinPlayerConfig{
-    public static speed = 110;
+    public static speed = 160;
 }
 
 export class MachinPlayer2Config{
-    public static speed = 100;
+    public static speed = 160;
 }

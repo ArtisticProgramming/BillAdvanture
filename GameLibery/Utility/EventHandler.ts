@@ -1,45 +1,33 @@
-﻿import { GameManagement } from '../Core/GameManagement';
-import { Menu } from '../Menu';
+﻿import {  GameManagement} from '../Core/GameManagement';
+import { BillGatesOV, SatyaNadella } from '../Configuration/ObjectVisual';
+import   { Menu} from '../Menu';
+import { GameCreation } from '../Core/GameCreation';
 import GameEvents = require("../Core/General/GameEvents");
 
-    export class EventHandler {
-        static RegisterkeyDown():void {
-            document.addEventListener("keydown", (e: KeyboardEvent) => {
-                // tslint:disable-next-line:typedef
-                let gameEv = new GameEvents.GameEvents();
-                gameEv.ManageEvents(e.keyCode);
-            });
-        }
-        static  RegisterPlayClick():void {
-        debugger;
-        let btn = document.getElementById("play");
-        $("body").on("click", ".play", (event) => this.playStartGame());
-
-        }
-
-        static  RegisterSettingClick():void {
-            debugger;
-            let btn = document.getElementById("setting");
-            $("body").on("click", ".setting", (event) => this.configSettingAndPlay());
-    
-        }
-
-        static playStartGame(){
-           if (GameManagement.GameIsStarted==true)
-           {
-                Menu.CloseMainMenu();  
-                GameManagement.GameStart();
-           }else{
-                Menu.CloseMainMenu();  
-               Menu.OpenSettingMenu();
-            }
-        }
-
-        static configSettingAndPlay(){
-                //config
-
-                Menu.CloseSettingMenu();  
-                GameManagement.GameStart();
-        }
-        
+export class EventHandler {
+    static RegisterEvents(): any {
+        EventHandler.RegisterkeyDown();
+        EventHandler.RegisterPlayClick();
+        EventHandler.RegisterChangeCharchter();
+        EventHandler.RegisterChangeDegree();
+        EventHandler.RegisterConfigSettingAndPlay();
     }
+    static RegisterkeyDown(): void {
+        document.addEventListener("keydown", (e: KeyboardEvent) => {
+            let gameEv = new GameEvents.GameEvents();
+            gameEv.ManageEvents(e.keyCode);
+        });
+    }
+    static RegisterPlayClick(): void {
+        $("body").on("click", ".play", (event) => GameManagement.playStartGame());
+    }
+    static RegisterConfigSettingAndPlay(): void {
+        $("body").on("click", ".configSettingAndPlay", (event) => GameManagement.ConfigSettingAndPlay());
+    }
+    static RegisterChangeCharchter(): void {
+        $("body").on("change", ".charchterRadioBtn", (event) => GameManagement.SelectPlayer());
+    }
+    static RegisterChangeDegree(): void {
+        $("body").on("change", ".degreeRadioBtn", (event) => GameManagement.SelectDegree());
+    }
+}

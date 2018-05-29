@@ -44,14 +44,14 @@
     var MachinPlayerConfig = /** @class */ (function () {
         function MachinPlayerConfig() {
         }
-        MachinPlayerConfig.speed = 110;
+        MachinPlayerConfig.speed = 160;
         return MachinPlayerConfig;
     }());
     exports.MachinPlayerConfig = MachinPlayerConfig;
     var MachinPlayer2Config = /** @class */ (function () {
         function MachinPlayer2Config() {
         }
-        MachinPlayer2Config.speed = 100;
+        MachinPlayer2Config.speed = 160;
         return MachinPlayer2Config;
     }());
     exports.MachinPlayer2Config = MachinPlayer2Config;

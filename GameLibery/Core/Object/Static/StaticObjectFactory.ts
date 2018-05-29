@@ -3,7 +3,7 @@ import { GamePlanConfig } from '../../../Configuration/GameConfig';
 import { ObjectOV } from '../../../Configuration/ObjectVisual';
 import { StaticObject } from './Block/StaticObject';
 import { ObjectAttribute } from '../../General/Enums';
-export class ObjectFactory {
+export class StaticObjectFactory {
 
     static reservedCellList: Array<number> = 
         [1, 
@@ -19,7 +19,7 @@ export class ObjectFactory {
         let SingleBlocks:Array<StaticObject> = new Array<StaticObject>();
         
         for (let i = 0; i < count ; i++) { 
-            var randomPosotion= ObjectFactory.GetProperRandomNumber();
+            var randomPosotion= this.GetProperRandomNumber();
             let block= new StaticObject(name, objectVisual,randomPosotion, objectType);
             block.Create();
             SingleBlocks.push(block);
