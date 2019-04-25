@@ -1,7 +1,7 @@
 requirejs.config({
     baseUrl: '.',
     urlArgs: "bust=" + (new Date()).getTime(),
-    waitSeconds: 200,
+    waitSeconds: 2000,
     deps: ['GameLibery/Game'],
     paths: {
         // the left side is the module ID,
